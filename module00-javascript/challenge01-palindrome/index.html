@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style -->
+    <link rel="stylesheet" href="./style/main.css">
+    <title>Palindrome</title>
+</head>
+
+<body>
+    <header>
+        <h1>Palindrome</h1>
+    </header>
+
+    <main>
+
+        <div class="container">
+            <form>
+                <label for="sequence">Add sequence</label>
+                <input type="text" name="sequence" id="sequence">
+                <div class="button__container">
+                    <button type="submit" name="submit" id='submit' class="button-submit">Validate</button>
+                    <button type="button" name="clear" id='clear' class="button-clear">Clear</button>
+                </div>
+            </form>
+
+            <!-- display results here -->
+            <div id="root" class="root"></div>
+        </div>
+
+    </main>
+
+    <!-- script -->
+    <script src="./js/validate.js"></script>
+</body>
+
+</html>

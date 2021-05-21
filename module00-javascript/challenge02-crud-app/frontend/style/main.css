@@ -157,4 +157,20 @@ h1 {
 .results__container li:hover, .results__container li:focus {
   background-color: #fff;
 }
+
+.results__container li span {
+  pointer-events: none;
+}
+
+.results__container li span:not(:last-child) {
+  margin-right: 0.25em;
+}
+
+.results__container li span:last-child {
+  font-style: italic;
+}
+
+.results__container li.selected {
+  color: #2980b9;
+}
 /*# sourceMappingURL=main.css.map */

@@ -157,5 +157,20 @@ h1 {
     &:hover, &:focus {
       background-color: #fff;
     }
+
+    span {
+      pointer-events: none;
+    }
+    span:not(:last-child) {
+      margin-right: 0.25em;
+    }
+
+    span:last-child{ 
+      font-style: italic;
+    }
+  }
+
+  li.selected {
+    color:$color-button;
   }
 }

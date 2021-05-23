@@ -40,6 +40,12 @@ body {
   background-color: $color-bc-lg;
 }
 
+h2 {
+  margin: 1em 0;
+  color: $color-title;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  }
+
 // ---------- HEADER ----------
 header {
   padding: 01em 02em;
@@ -96,6 +102,7 @@ main {
   }
 
   .card {
+    height: 100px;
     flex: 1;
     padding: 1em;
     background-color: #fff;
@@ -113,12 +120,14 @@ main {
     }
 
     &__header {
+        margin-bottom: 0.5em;
       color: $color-title;
       font-size: 1.6rem;
       font-weight: bold;
     }
 
     &__body {
+    
       color: $color-text;
       font-size: clamp(1.4rem, 1.6vw, 1.6rem);
     }
@@ -126,7 +135,7 @@ main {
     &__caption {
       padding-top: 0.5em;
       margin-top: 0.5em;
-      border-top: 1px solid $color-bc-lg;
+      border-top: 1px solid $color-gray;
       font-size: clamp(1rem, 1.2vw, 1.2rem);
       text-transform: uppercase;
     }

@@ -16,50 +16,61 @@
     </header>
 
     <main>     
+
+        <div id="errors"></div>   
+
         <!-- form -->
         <div class="form__container">
             <form>
-                <label for="country">Select a country</label>
-                <select name="country" id="country">
+                <!-- slug: country name -->
+                <label for="slug">Select a country</label>
+                <select name="slug" id="slug">
                     <!-- options rendered by js -->
                 </select>
 
-                <label for="date">Choose a date</label>
-                <input type="date" name="date" id="date">
+                <label for="calendar">Choose a date</label>
+                <input type="date" name="calendar" id="calendar">
             </form>
+            <button type="submit" id="buttonSubmit">SEARCH</button>
         </div> 
+
+        <h2 class="title" id="title"></h2>
 
         <!-- results -->
         <div class="card__container">
-            <div class="card">
-                <h4 class="card__header">Lorem, ipsum.</h4>
-                <p class="card__body">Lorem, ipsum.</p>
-                <p class="card__caption">Lorem</p>
+            <div class="card" id="confirmed">
+                <h4 class="card__header">Total confirmed</h4>
+                <p class="card__body"></p>
+                <p class="card__caption"></p>
             </div>
 
-            <div class="card">
-                <h4 class="card__header">Lorem, ipsum.</h4>
-                <p class="card__body">Lorem, ipsum.</p>
-                <p class="card__caption">Lorem</p>
+            <div class="card" id="deaths">
+                <h4 class="card__header">Total deaths</h4>
+                <p class="card__body"></p>
+                <p class="card__caption"></p>
             </div>
 
-            <div class="card">
-                <h4 class="card__header">Lorem, ipsum.</h4>
-                <p class="card__body">Lorem, ipsum.</p>
-                <p class="card__caption">lorem</p>
+            <div class="card" id="recovery">
+                <h4 class="card__header">Total recovered</h4>
+                <p class="card__body"></p>
+                <p class="card__caption"></p>
             </div>
 
-            <div class="card">
-                <h4 class="card__header">Lorem, ipsum.</h4>
-                <p class="card__body">Lorem, ipsum.</p>
-                <p class="card__caption">lorem></p>
+            <div class="card" id="update">
+                <h4 class="card__header">Last update</h4>
+                <p class="card__body"></p>
+                <p class="card__caption"></p>
             </div>
         </div>
+
+        <div class="root"></div>
 
     </main>
 
     <footer></footer>
+    
     <!-- script -->
+    <script src="./js/requests.js"></script>
     <script src="./js/index.js"></script>
 </body>
 

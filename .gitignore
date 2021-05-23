@@ -1,0 +1,22 @@
+# ignore ALL .log files
+*.log
+
+# ignore ALL files in ANY directory named temp
+temp/
+
+# dependency directory
+/node_modules
+node_modules
+
+# code
+/vscode
+
+# sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+#miscelaneous
+ .DS_Store
+  thumbs.db

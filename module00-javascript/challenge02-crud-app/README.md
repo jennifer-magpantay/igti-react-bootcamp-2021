@@ -10,11 +10,13 @@ Implement an employee registration application, making it possible to create, re
 
 As part of the HTTP Requests chapter from the JavaScript module, the main goal is develop a crud application, making use of main requests methods (post, put, delete)fetch api, ending points and consume of data in JSON format.
 
-### Status: ongoing
+### Status
+
+Almost finished. I am still working on one last bug.
 
 ## Tech Stack
 
-HTML, CSS, Sass, JavaScript
+HTML, CSS, Sass, JavaScript, Node
 
 ## License
 

@@ -19,46 +19,44 @@
         <!-- display error message -->
         <div id='errors' class="errors"></div>
 
-        <div class="container">
+        <div class="form__container">
+            <form>
+                <!-- consider id, name, salary and role_id for the inputs -->
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required>
 
-            <div class="form__container">
-                <form>
-                    <!-- consider id, name, salary and role_id for the inputs -->
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name">
+                <label for="salary">Salary</label>
+                <input type="number" name="salary" id="salary" required>
 
-                    <label for="salary">Salary</label>
-                    <input type="number" name="salary" id="salary">
+                <!-- consider id and name for the select options -->
+                <label for="role_id">Position</label>
+                <select name="role_id" id="role_id" required>
+                    <!-- read and display the role list into option tags -->
+                    <!-- <option value=""></option> -->
+                </select>
+                <div class="button__container">
+                    <button type="submit" name="submit" id='submit' class="button-submit">Create</button>
+                    <button type="button" name="clear" id='clear' class="button-clear disabled">Clear</button>
+                    <button type="button" name="delete" id='delete' class="button-delete disabled">Delete</button>
+                </div>
+            </form>
+        </div>
 
-                    <!-- consider id and name for the select options -->
-                    <label for="role_id">Position</label>
-                    <select name="role_id" id="role_id">
-                        <!-- read and display the role list into option tags -->
-                        <!-- <option value=""></option> -->
-                    </select>
-                    <div class="button__container">
-                        <button type="submit" name="submit" id='submit' class="button-submit">Validate</button>
-                        <button type="button" name="clear" id='clear' class="button-clear">Clear</button>
-                        <button type="button" name="delete" id='delete' class="button-delete">Delete</button>
-                    </div>
-                </form>
-            </div>
-
+        
             <!-- display results here -->
             <div class="results__container">
-                <h4>Employees list</h4>
+                <h2>Employees list</h2>
                 <div class="root" id="root">
                     <ul id="list-employees"></ul>
                 </div>
             </div>
-        </div>
-
+        
     </main>
 
     <!-- script -->
     <script src="./js/requests.js"></script>
     <script src="./js/index.js"></script>
-   
+
 </body>
 
 </html>

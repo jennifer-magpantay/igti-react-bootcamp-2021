@@ -11,51 +11,70 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f1f2f6;
+  background-color: #fff;
 }
 
 h1 {
-  margin: 1em 0;
-  font-size: 3.9rem;
   color: #2f3542;
-  text-align: center;
+  font-size: clamp(2rem, 3.9vw, 3.9rem);
 }
 
-.container {
-  padding: 1em;
+h2 {
+  margin: 1em 0;
+  color: #2f3542;
+  font-size: clamp(1.6rem, 2vw, 2rem);
 }
 
-@media (min-width: 768px) {
-  .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
+header {
+  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.form__container {
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .form__container {
-    width: 49%;
-  }
+main {
+  height: 68vh;
 }
 
 .form__container form {
   padding: 2em;
-  background-color: #fff;
+  border-top: 1px solid #f1f2f6;
+  border-bottom: 1px solid #f1f2f6;
+}
+
+@media (min-width: 768px) {
+  .form__container form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 .form__container form label {
   display: block;
-  margin-bottom: 0.5em;
   color: #282828;
   font-size: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .form__container form label {
+    display: inline-block;
+    margin-right: 0.5em;
+  }
 }
 
 .form__container form input,
@@ -67,16 +86,28 @@ h1 {
   font-size: 1.6rem;
 }
 
+@media (min-width: 768px) {
+  .form__container form input,
+  .form__container form select,
+  .form__container form option {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-bottom: 0;
+    margin-right: 0.5em;
+  }
+}
+
 .form__container form .button__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .form__container form .button__container button {
@@ -86,9 +117,14 @@ h1 {
   cursor: pointer;
   font-size: 1.6rem;
   border: none;
-  text-align: center;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .form__container form .button__container button {
+    width: auto;
+  }
 }
 
 .form__container form .button__container .button-submit {
@@ -123,39 +159,73 @@ h1 {
   color: #fff;
 }
 
-.form__container .root {
-  margin-top: 2em;
-  padding: 1em;
-  font-size: 1.6rem;
+.form__container form .button__container .button-clear.disabled,
+.form__container form .button__container .button-delete.disabled {
+  border-color: gray;
+  color: gray;
+  pointer-events: none;
 }
 
 .results__container {
-  padding-top: 1em;
-  margin-left: 1em;
-  font-size: 1.6rem;
-  overflow: auto;
+  height: 100%;
+  padding: 0 2em;
 }
 
 @media (min-width: 768px) {
   .results__container {
-    width: 49%;
+    overflow-y: auto;
   }
 }
 
-.results__container h4 {
-  margin-bottom: 0.5em;
+.results__container h3 {
+  margin: 1em 0 0.5em 0;
+}
+
+.results__container .root {
+  font-size: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .results__container .root ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 .results__container li {
   display: block;
-  padding: 0.2em;
+  padding: 0.5em;
   cursor: pointer;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  border-left: 1px solid transparent;
 }
 
 .results__container li:hover, .results__container li:focus {
-  background-color: #fff;
+  background-color: #f1f2f6;
+  border-color: gray;
+}
+
+@media (min-width: 768px) {
+  .results__container li {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 30%;
+            flex: 1 30%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .results__container li {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 25%;
+            flex: 1 25%;
+  }
 }
 
 .results__container li span {

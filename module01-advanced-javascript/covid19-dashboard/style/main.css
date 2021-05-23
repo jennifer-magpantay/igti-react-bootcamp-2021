@@ -1,0 +1,120 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+}
+
+header {
+  padding: 01em 02em;
+  background-color: #fff;
+  border-bottom: 1px solid #bdc3c7;
+}
+
+header img {
+  width: clamp(10rem, 12vw, 16rem);
+}
+
+main {
+  padding: 01em 02em;
+}
+
+.form__container {
+  margin: 1em 0 2em;
+}
+
+.form__container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1em;
+  background-color: #fff;
+  border: 1px solid #bdc3c7;
+  font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+}
+
+.form__container form label {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.form__container form input,
+.form__container form select {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0.5em;
+}
+
+.form__container form select {
+  margin-right: 0.5em;
+}
+
+@media (min-width: 768px) {
+  .card__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.card__container .card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 1em;
+  background-color: #fff;
+  border: 1px solid #bdc3c7;
+}
+
+.card__container .card:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+@media (min-width: 768px) {
+  .card__container .card:not(:last-child) {
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
+}
+
+.card__container .card__header {
+  color: #2f3542;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.card__container .card__body {
+  color: #282828;
+  font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+}
+
+.card__container .card__caption {
+  padding-top: 0.5em;
+  margin-top: 0.5em;
+  border-top: 1px solid #fafafa;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  text-transform: uppercase;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,134 @@
+// GLOBAL VARIABLES
+
+// COLOURS
+$color-bc-lg: #fafafa;
+$color-title: #2f3542;
+$color-gray: #bdc3c7;
+$color-button: #2980b9;
+$color-text: #282828;
+$color-error: #e74c3c;
+
+// QUERIES
+
+$tablet: 768px;
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+$laptop: 1024px;
+@mixin laptop {
+  @media (min-width: #{$laptop}) {
+    @content;
+  }
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $color-bc-lg;
+}
+
+// ---------- HEADER ----------
+header {
+  padding: 01em 02em;
+  background-color: #fff;
+  border-bottom: 1px solid $color-gray;
+
+  // logo
+  img {
+    width: clamp(10rem, 12vw, 16rem)
+  }
+}
+
+main {
+  padding: 01em 02em;
+}
+
+// form
+.form__container {
+  margin: 1em 0 2em;
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid $color-gray;
+    font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+
+    label {
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+
+    input,
+    select {
+      flex: 1;
+      padding: 0.5em;
+    }
+
+    select {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+// card
+.card__container {
+
+  @include tablet() {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex: 1;
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid $color-gray;
+
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    @include tablet() {
+      &:not(:last-child) {
+        margin-right: 1em;
+        margin-bottom: 0;
+      }
+    }
+
+    &__header {
+      color: $color-title;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    &__body {
+      color: $color-text;
+      font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+    }
+
+    &__caption {
+      padding-top: 0.5em;
+      margin-top: 0.5em;
+      border-top: 1px solid $color-bc-lg;
+      font-size: clamp(1rem, 1.2vw, 1.2rem);
+      text-transform: uppercase;
+    }
+  }
+}

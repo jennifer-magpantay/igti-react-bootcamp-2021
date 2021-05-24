@@ -1,4 +1,4 @@
-// set here all http requests
+// set here all requests
 
 // variables
 const baseURL = "https://api.covid19api.com";
@@ -14,12 +14,12 @@ function returnFetchJson(url, options) {
             throw new Error(response.statusText);
         }
     }).catch(error => {
-        // throwError("Data loading error", error);
+        showError(error);
         throw error;
     });
 }
 
-// requests
+// requests GET
 function listAllCountries() {
     return returnFetchJson(`${baseURL}/countries`);
 }
@@ -32,7 +32,7 @@ function getDataByCountry(country,date){
     return returnFetchJson(`${baseURL}/country/${country}?from=2020-03-01T00:00:00Z&to=${date}T00:00:00Z`);
 }
 
-
+// error function to display message
 function showError(error) {
-    document.querySelector('#errors').innerHTML = "Loading data error";
+    document.querySelector('#error').innerHTML = "Data load error";
 }

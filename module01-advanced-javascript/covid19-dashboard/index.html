@@ -11,13 +11,13 @@
 </head>
 
 <body>
-    <header>  
-        <img src="./assets/logo_app.png" alt="Covid-19 Tracker logo"/>      
+    <header>
+        <img src="./assets/logo_app.png" alt="Covid-19 Tracker logo" />
     </header>
 
-    <main>     
-
-        <div id="errors"></div>   
+    <main>
+        <!-- error messages -->
+        <div id="error" class="error--msg"></div>
 
         <!-- form -->
         <div class="form__container">
@@ -30,9 +30,11 @@
 
                 <label for="calendar">Choose a date</label>
                 <input type="date" name="calendar" id="calendar">
+
+                <button type="submit" id="buttonSubmit">SEARCH</button>
+
             </form>
-            <button type="submit" id="buttonSubmit">SEARCH</button>
-        </div> 
+        </div>
 
         <h2 class="title" id="title"></h2>
 
@@ -63,12 +65,12 @@
             </div>
         </div>
 
-        <div class="root"></div>
+        <div id="root"></div>
 
     </main>
 
     <footer></footer>
-    
+
     <!-- script -->
     <script src="./js/requests.js"></script>
     <script src="./js/index.js"></script>

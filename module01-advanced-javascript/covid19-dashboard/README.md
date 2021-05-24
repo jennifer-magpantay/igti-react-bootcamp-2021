@@ -18,11 +18,11 @@ Implement the application by using regular JavaScript, apply events manipulation
 
 ### Status
 
-In development process.
+Completed.
 
 ## Tech Stack
 
-HTML, CSS, Sass, JavaScript, Node
+HTML, CSS, Sass, JavaScript.
 
 ## License
 

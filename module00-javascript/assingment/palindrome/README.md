@@ -11,15 +11,17 @@ Algorithm to validate whether a sequence of characters is a palindrome.
 *En.wikipedia.org. 2021. Palindrome - Wikipedia. [online] Available at: <https://en.wikipedia.org/wiki/Palindrome#Names> [Accessed 20 May 2021].*
 
 
-### Objectvives
+### Goals
 
 Apply logic and concepts of basic Javascript, including DOM interaction, loops and validation. 
 
-### Status: completed
+### Status: 
+
+Completed
 
 ## Tech Stack
 
-**Client:** HTML, CSS, Sass, JavaScript
+HTML5, CSS3, Sass, JavaScript
 
 ## License
 

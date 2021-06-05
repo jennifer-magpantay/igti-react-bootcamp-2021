@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style -->
+    <link rel="stylesheet" href="./style/main.css">
+    <title>COVID-19 | Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <img src="./assets/logo_app.png" alt="Covid-19 Tracker logo" />
+    </header>
+
+    <main>
+        <!-- error messages -->
+        <!-- <div id="error" class="error--msg"></div> -->
+
+        <div class="container">
+            <!-- form -->
+            <div class="form__container">
+                <form>
+                    <!-- slug: country name -->
+                    <label for="slug">Select a country</label>
+                    <select name="slug" id="slug">
+                        <!-- options rendered by js -->
+                    </select>
+
+                    <label for="calendarFrom">From:</label>
+                    <input type="date" name="calendarFrom" id="calendarFrom">
+
+                    <label for="calendarTo">To :</label>
+                    <input type="date" name="calendarTo" id="calendarTo">
+
+                    <button type="submit" id="buttonSubmit" class="search">SEARCH</button>
+                    <button type="button" id="buttonClear" class="clear">CLEAR</button>
+
+                </form>
+            </div>
+
+            <!-- cards -->
+            <div class="card__container">
+                <h2 class="title" id="title"></h2>
+
+                <div class="cards">
+                    <div class="card" id="confirmed">
+                        <h4 class="card__header">Total confirmed</h4>
+                        <p class="card__body"></p>
+                        <p class="card__caption"></p>
+                    </div>
+
+                    <div class="card" id="deaths">
+                        <h4 class="card__header">Total deaths</h4>
+                        <p class="card__body"></p>
+                        <p class="card__caption"></p>
+                    </div>
+
+                    <div class="card" id="recovery">
+                        <h4 class="card__header">Total recovered</h4>
+                        <p class="card__body"></p>
+                        <p class="card__caption"></p>
+                    </div>
+
+                    <div class="card" id="update">
+                        <h4 class="card__header">Last update</h4>
+                        <p class="card__body"></p>
+                        <p class="card__caption"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- pie chart -->
+            <div class="pie-chart">
+                <canvas id="pieChart" class="pie"></canvas>
+            </div>
+
+            <!-- bar & line charts -->
+            <div class="charts">
+                <div class="bar-chart">
+                    <canvas id="barChart" class="bar" width="100%"></canvas>
+                </div>
+
+                <div class="line-chart hidden">
+                    <canvas id="lineChart" class="line"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="root"></div>
+
+    </main>
+
+    <footer></footer>
+
+    <!-- cdn libs -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- script -->
+    <script src="./service/api.js"></script>
+    <script src="./service/helpers.js"></script>
+    <script src="./service/index.js"></script>
+</body>
+
+</html>

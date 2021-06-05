@@ -16,11 +16,11 @@ The following requeriments must be met:
 
 4. The connection with the API and its content display must be done by using libraries as Axios, Chart.js and Lodash.
 
-### Goals
+## Goals
 
 Implement the application by using JavaScript libraries, apply events manipulation and make use of synchronous requests.
 
-### Status
+## Status
 
 In development
 

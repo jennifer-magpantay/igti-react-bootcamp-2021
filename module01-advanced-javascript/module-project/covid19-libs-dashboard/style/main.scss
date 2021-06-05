@@ -1,0 +1,220 @@
+// GLOBAL VARIABLES
+
+// COLOURS
+$color-bc-lg: #fafafa;
+$color-title: #2f3542;
+$color-gray: #bdc3c7;
+$color-button: #2980b9;
+$color-text: #282828;
+$color-error: #e74c3c;
+
+// EFFECTS
+$box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.25);
+
+// QUERIES
+
+$tablet: 768px;
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+$laptop: 1024px;
+@mixin laptop {
+  @media (min-width: #{$laptop}) {
+    @content;
+  }
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $color-bc-lg;
+}
+
+h2 {
+  margin-bottom: 1em;
+  padding-left: 0.5em;
+  color: $color-title;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+}
+
+// ---------- HEADER ----------
+header {
+  padding: 01em 02em;
+  background-color: #fff;
+  border-bottom: 1px solid $color-gray;
+
+  // logo
+  img {
+    width: clamp(10rem, 12vw, 16rem);
+  }
+}
+
+// ---------- MAIN ----------
+main {
+  padding: 01em 02em;
+}
+
+.error--msg {
+  height: 1.8rem;
+  padding: 0 0 0 0.5em;
+  color: $color-error;
+  font-size: clamp(1.6rem, 1.8vw, 1.8rem);
+}
+
+.container {
+  @include tablet() {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+// form
+.form__container {
+  margin-bottom: 01em;
+
+  @include tablet() {
+    width: 30%;
+  }
+
+  form {
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid $color-gray;
+    font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+
+    label {
+      display: block;
+    }
+
+    input,
+    select {
+      width: 100%;
+      margin-bottom: 1em;
+      font-size: clamp(1.2rem, 1.4vw, 1.4rem);
+    }
+
+    select {
+      margin-right: 0.5em;
+      padding: 0.5em;
+    }
+
+    input {
+      padding: 0.25em 0.5em;
+    }
+
+    button {
+      padding: 0.5em;
+      border: 0;
+      box-shadow: $box-shadow;
+      cursor: pointer;
+      font-size: clamp(1.2rem, 1.4vw, 1.4rem);
+      transition: all 0.5s ease;      
+    }
+
+    .search {
+        background-color: $color-button;
+        color: #fff;
+        &:hover,
+        &:focus {
+          background-color: darken($color-button, 15%);
+        }
+      }
+
+      .clear {
+        background-color: #fff;
+        border: 1px solid $color-button;
+        color: $color-button;
+        &:hover,
+        &:focus {
+          background-color: $color-button;
+          color: #fff;
+        }
+      }
+  }
+}
+
+// card
+.card__container {
+  @include tablet() {
+    width: 68%;
+  }
+  .cards {
+    @include tablet() {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  .card {
+    height: 100px;
+    flex: 1;
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid $color-gray;
+    transition: all 0.5s ease;
+    margin-bottom: 1em;
+
+    &:hover {
+      box-shadow: $box-shadow;
+      transform: scale(1.025);
+    }
+
+    @include tablet() {
+      flex: 0 1 49%;
+    }
+
+    &__header {
+      margin-bottom: 0.5em;
+      color: $color-title;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    &__body {
+      color: $color-text;
+      font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+    }
+
+    &__caption {
+      padding-top: 0.5em;
+      margin-top: 0.5em;
+      border-top: 1px solid $color-gray;
+      font-size: clamp(1rem, 1.2vw, 1.2rem);
+      text-transform: uppercase;
+    }
+  }
+}
+
+.pie-chart {
+  width: 30%;
+  height: 40vh;
+}
+
+.charts {
+  width: 68%;
+
+  .bar-chart,
+  .line-chart {
+    width: 100%;
+  }
+
+  .hidden {
+    display: none;
+  }
+}

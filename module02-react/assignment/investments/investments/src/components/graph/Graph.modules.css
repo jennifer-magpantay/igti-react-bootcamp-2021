@@ -1,0 +1,11 @@
+main {
+  height: 100%;
+  padding: 0.5em;
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  main {
+    flex: 0 1 65%;
+  }
+}

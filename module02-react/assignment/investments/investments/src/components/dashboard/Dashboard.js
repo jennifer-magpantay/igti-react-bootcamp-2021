@@ -1,6 +1,6 @@
 import styles from './Dashboard.module.css';
 
-export default function Dashboard({ description, month, value }) {
+export default function Dashboard({ description, children }) {
     return (
         <div>
             {/* content from: investments.description */}
@@ -8,25 +8,12 @@ export default function Dashboard({ description, month, value }) {
 
             <div className={styles.container}>
 
+                {children}
+
                 <aside>
-                    {/* content from: reports.month and reports.value to populate the table */}
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Month</th>
-                                <th>Amount</th>
-                                <th>Calc %</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span>{month}</span></td>
-                                <td><span>{value}</span></td>
-                                <td><span>15%</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    {children}
                 </aside>
+
                 <main>
                     {/* graphs */}
                 </main>

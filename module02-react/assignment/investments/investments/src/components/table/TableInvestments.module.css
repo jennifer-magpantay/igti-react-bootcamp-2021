@@ -1,0 +1,28 @@
+aside {
+  height: 100%;
+  display: block;
+  padding-right: 0.5em;
+  margin-right: auto;
+}
+
+table {
+  width: 100%;
+}
+
+table * th,
+table * td {
+  width: calc(100% / 3);
+  padding: 0.5em;
+  text-align: left;
+}
+
+table * tr {
+  background-color: #fff;
+  border-bottom: 1px solid var(--gray);
+}
+
+@media (min-width: 768px) {
+  aside {
+    flex: 0 1 35%;
+  }
+}

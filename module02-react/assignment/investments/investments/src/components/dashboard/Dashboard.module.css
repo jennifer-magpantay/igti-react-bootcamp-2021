@@ -11,43 +11,8 @@ header {
   margin-bottom: 1em;
 }
 
-aside {
-  height: 100%;
-  padding-right: 0.5em;
-}
-
-table {
-  width: 100%;
-}
-
-aside * th,
-aside * td {
-  width: calc(100% / 3);
-  padding: 0.5em;
-  text-align: left;
-}
-
-aside * tr {
-  background-color: #fff;
-  border-bottom: 1px solid var(--gray);
-}
-
-main {
-  height: 100%;
-  padding: 0.5em;
-  background-color: orange;
-}
-
 @media (min-width: 768px) {
   .container {
     display: flex;
-  }
-
-  aside {
-    width: 30%;
-  }
-
-  main {
-    width: 70%;
   }
 }

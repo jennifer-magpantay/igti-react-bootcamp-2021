@@ -2,5 +2,11 @@
 @import "./global.css";
 
 .container {
-  margin-inline: 4em;
+  margin: 0 4em 1em;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+  }
 }

@@ -4,7 +4,7 @@
 
 ### Module 02 - React
 
-Develop an application to calculate and display the evolution of fund income. 
+Develop an application to calculate and display the evolution of different fund income. 
 
 The following requeriments must be met:
 
@@ -12,7 +12,7 @@ The following requeriments must be met:
 
 2. You will have to transform this content, which is in JSON format, into variables in memory, which will have to be read by the React component that will perform the data rendering.
 
-3. In addition, build a caluclation, based on the data released, the percentage of total income/loss (between January and December) and the percentage of income/loss each month.
+3. In addition, build a caluclation, based on the data released, the percentage of total income/loss (between January and December) and the percentage of income/loss of each month.
 
 ### Goals
 
@@ -20,7 +20,7 @@ Implement the application by using regular JavaScript, React, and function compo
 
 ### Status
 
-In progress.
+Completed.
 
 ## Tech Stack
 

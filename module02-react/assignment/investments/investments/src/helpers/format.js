@@ -1,6 +1,13 @@
 // functions: format number to pt-BR pattern
 function formatNumber(number) {
-    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number);
+    return new Intl.NumberFormat('en-BR', { style: 'currency', currency: 'EUR' }).format(number);
+}
+
+function formatPercentage(number) {
+    if (number < 0) {
+        console.log(number)
+    }
+    return number.toFixed(2) + "%";
 }
 
 function formatMonth(i) {
@@ -8,4 +15,4 @@ function formatMonth(i) {
     return months[i - 1];
 }
 
-export { formatNumber, formatMonth }
+export { formatNumber, formatPercentage, formatMonth }

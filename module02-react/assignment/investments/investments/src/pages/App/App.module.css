@@ -1,12 +1,21 @@
 @import "./reset.css";
 @import "./global.css";
 
+.header{
+  margin: 01em 0 0;
+  padding-bottom: 01em;
+  border-bottom: 01px solid var(--gray);
+  text-align: center;
+}
+
 .container {
-  margin: 0 4em 1em;
+  padding: 2em 4em;
+  border-bottom: 1px solid var(--gray);
 }
 
 @media (min-width: 768px) {
   .container {
     display: flex;
+    align-items: flex-end;
   }
 }

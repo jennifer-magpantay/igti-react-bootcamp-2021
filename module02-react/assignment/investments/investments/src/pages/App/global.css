@@ -4,15 +4,16 @@
 :root {
   --bc-color: #f5f6fa;
   --text-color: #282828;
-  --blue: #3498db;
+  --blue: #487eb0;
   --dk-blue: #2980b9;
   --green: #2ecc71;
   --dk-green: #27ae60;
   --orange: #ff7f50;
   --dk-orange:#ff6348;
   --error: #e84118;
-  --lg-gray: #f1f2f6;
-  --gray: #bdc3c7;
+  --lg-gray: #fbfbfb;
+  --dk-gray: #2f3640;
+  --gray: #dddddd;
   --box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.25);
   --overlay: rgba(0,0,0,0.5);
 }
@@ -38,7 +39,7 @@ body {
 body,
 input,
 textarea,
-button {
+button, h5 {
   font-size: clamp(1.2rem, 1.4vw, 1.4rem);
   font-weight: 400;
   outline: none;

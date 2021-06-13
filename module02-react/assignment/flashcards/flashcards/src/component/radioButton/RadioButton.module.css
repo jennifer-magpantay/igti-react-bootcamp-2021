@@ -1,0 +1,12 @@
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  }
+
+.buttonLabel {
+  padding: 0 2em 0 0.5em; 
+}
+
+input, .buttonLabel{
+     cursor: pointer;
+}

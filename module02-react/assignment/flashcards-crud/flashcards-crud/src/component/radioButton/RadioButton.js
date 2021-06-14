@@ -6,7 +6,7 @@ import { getNewId } from "../../services/idService";
     It is implemented with props for id, name, value, checked state and an event listener for the input changes
 */
 
-export default function RadioButton({ id = getNewId, name, value, isChecked = false, onButtonChange }) {
+export default function RadioButton({ id = getNewId, name, label, isChecked = false, onButtonChange }) {
 
     function handleButtonOnChange(event) {
         if (onButtonChange) {
@@ -16,7 +16,7 @@ export default function RadioButton({ id = getNewId, name, value, isChecked = fa
     return (
         <div className={styles.buttonContainer}>
             <input type='radio' id={id} name={name} checked={isChecked} onChange={handleButtonOnChange} />
-            <label htmlFor={id} className={styles.buttonLabel}>{value}</label>
+            <label htmlFor={id} className={styles.buttonLabel}>{label}</label>
         </div>
     )
 }

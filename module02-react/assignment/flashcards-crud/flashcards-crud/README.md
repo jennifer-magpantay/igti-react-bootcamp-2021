@@ -14,7 +14,9 @@ The following requeriments must be met:
 
 1. Consume and display the data content, initially provided in JSON format, from a JSON server.
 
-2. Implement CRUD functionalities to manage cards.
+2. Update functions to get data from the backend
+
+3. Implement CRUD functionalities to manage cards.
 
 ### Status
 

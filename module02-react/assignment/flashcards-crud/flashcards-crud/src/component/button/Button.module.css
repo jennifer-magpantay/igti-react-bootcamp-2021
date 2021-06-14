@@ -1,0 +1,16 @@
+.button {
+  display: block;
+  margin: 1em auto;
+  padding: 1em 3em;
+  background-color: #fff;
+  border: 3px solid var(--dk-gray);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: var(--transitions);
+}
+
+.button:hover, .button:focus{
+    background-color: var(--dk-gray);
+    color: #fff;
+}

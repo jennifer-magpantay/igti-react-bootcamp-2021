@@ -1,0 +1,9 @@
+label {
+  text-transform: capitalize;
+}
+
+select {
+  width: 100%;
+  padding: 01em 0.5em;
+  outline-color: var(--gray);
+}

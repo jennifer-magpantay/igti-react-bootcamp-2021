@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  background-color: #fff;
+  border: 1px solid var(--gray);
+  box-shadow: var(--box-shadow);
+}
+
+.cardAside {
+  margin-right: 0.5em;
+}
+
+.cardMain * h2 {
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--gray);
+}
+
+.avatar {
+  width: 5em;
+}
+
+@media (min-width: 768px) {
+  .card {
+    flex: 0 1 48%;
+  }
+  
+}

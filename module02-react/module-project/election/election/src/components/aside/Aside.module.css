@@ -1,9 +1,11 @@
 aside {
-    padding: 01em;    
+  height: 70vh;
+  padding: 01em;
+  border-right: 01px solid var(--gray);
 }
 
 @media (min-width: 768px) {
   aside {
-      width: 35%;
+    width: 35%;
   }
 }

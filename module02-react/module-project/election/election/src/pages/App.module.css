@@ -2,13 +2,38 @@
 @import "./global.css";
 
 .container {
-  padding: 1em 4em;
+  padding: 1em 2em;
 }
+
+.resultContainer{
+  margin-top: 01em;
+  padding: 01em;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+}
+
+.resultContainer > h2 {
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 01px solid var(--gray);
+}
+
+.cardsContainer{
+  
+}
+
 
 @media (min-width: 768px) {
   .container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+  }
+
+  .cardsContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }

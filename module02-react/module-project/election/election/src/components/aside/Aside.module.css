@@ -1,0 +1,9 @@
+aside {
+    padding: 01em;    
+}
+
+@media (min-width: 768px) {
+  aside {
+      width: 35%;
+  }
+}

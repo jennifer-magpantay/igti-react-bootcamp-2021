@@ -1,0 +1,6 @@
+.headerTitle {
+  margin: 01em 0 0;
+  padding-bottom: 01em;
+  border-bottom: 01px solid var(--gray);
+  text-align: center;
+}

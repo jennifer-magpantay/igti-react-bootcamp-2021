@@ -1,0 +1,14 @@
+@import "./reset.css";
+@import "./global.css";
+
+.container {
+  padding: 1em 4em;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}

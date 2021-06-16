@@ -4,7 +4,7 @@ import styles from './Button.module.css';
     Button component with props for value and event listsner
 */
 
-export default function Button({ children, onButtonClick }) {
+export default function Button({ type, value, children, onButtonClick }) {
 
     function handleButtonOnClick() {
         if (onButtonClick) {
@@ -13,7 +13,7 @@ export default function Button({ children, onButtonClick }) {
     }
 
     return (
-        <button className={styles.button} onClick={handleButtonOnClick}>
+        <button type={type} value={value} className={styles.button} onClick={handleButtonOnClick}>
             {children}
         </button>
     )

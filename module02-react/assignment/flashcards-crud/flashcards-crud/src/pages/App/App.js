@@ -1,8 +1,9 @@
 import styles from './App.module.css';
 import { useEffect, useState } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import { helperShuffleArray } from '../../helpers/arrayHelpers';
 import { apiGetData } from '../../services/apiService';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Header from '../../component/header/Header';
 import Spinner from '../../component/spinner/Spinner';
 import ErrorMessage from '../../component/errorMessage/ErrorMessage';
@@ -11,7 +12,10 @@ import Button from '../../component/button/Button';
 import RadioButton from '../../component/radioButton/RadioButton';
 import Flashcards from '../../component/flashcards/Flashcards';
 import Card from '../../component/card/Card';
-
+import SearchBox from '../../component/searchBox/SearchBox';
+import ContainerContent from '../../component/containerContent/ContainerContent';
+import Modal from '../../component/modal/Modal';
+import Form from '../../component/form/Form';
 
 /*
   App, as a parent component, will import all the other components of the application
@@ -23,6 +27,7 @@ function App() {
   const [showTitle, setShowTitle] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   // implement useEffect to render tha date from the api
   useEffect(() => {
@@ -52,19 +57,52 @@ function App() {
   }, [])
 
   // shuffle cards event
-  function handleButtonOnClick() {
+  function handleShuffleButtonOnClick() {
     const shuffledCards = helperShuffleArray(cards)
     setCards(shuffledCards)
   }
 
   // flipping cards event
-  function handleButtonOnChange({ currentTarget }) {
+  function handleRadioButtonOnChange({ currentTarget }) {
     if (currentTarget.id === "description") {
       setShowTitle(false);
     }
     else {
       setShowTitle(true);
     }
+  }
+
+  function handleSearchButtonOnClick() {
+
+  }
+
+  function handleClearButtonOnClick() {
+
+  }
+
+  function handleIconOnClickEdit(flashCard) {
+    console.log(flashCard)
+    console.log("open modal")
+    setShowModal(true)
+  }
+
+
+  function handleIconOnClickDelete(id) {
+    // delete temporary the card selected 
+    // 1) filter cards by saving into a variable all != ids from thye list
+    const deletedFilter = cards.filter(card => card.id !== id);
+    // then, set the cards with the 'new value'
+    setCards(deletedFilter);
+    alert("Card deleted with success")
+  }
+
+  let modal = "";
+  if (showModal) {
+    modal = <>
+      <Modal>
+        <Form />
+      </Modal>
+    </>
   }
 
   // setting the spinner
@@ -78,22 +116,64 @@ function App() {
   if (!isLoading) {
     // otherwise, display all the main content
     main = <>
-      <Button onButtonClick={handleButtonOnClick}>SHUFFLE CARDS</Button>
+      {/* set tabs here */}
+      <div className={styles.mainContainer}>
+        <Tabs>
+          <TabList>
+            <Tab>Flash Cards</Tab>
+            <Tab>Manage Cards Content</Tab>
+          </TabList>
 
-      <div className={styles.container}>
-        <RadioButton id="title" name="info" label="Display Title" isChecked={showTitle} onButtonChange={handleButtonOnChange} />
+          <TabPanel>
+            <Button type="button" value="Suffle Cards" onButtonClick={handleShuffleButtonOnClick}>SHUFFLE CARDS</Button>
 
-        <RadioButton id="description" name="info" label="Display Description" isChecked={!showTitle} onButtonChange={handleButtonOnChange} />
+            <div className={styles.container}>
+              <RadioButton id="title" name="info" label="Display Title" isChecked={showTitle} onButtonChange={handleRadioButtonOnChange} />
+
+              <RadioButton id="description" name="info" label="Display Description" isChecked={!showTitle} onButtonChange={handleRadioButtonOnChange} />
+            </div>
+
+            <Flashcards>
+              {/* render cards */}
+              {
+                cards.map(({ id, title, description }) => {
+                  return <Card key={id} title={title} description={description} isTitleShown={showTitle} />
+                })
+              }
+            </Flashcards>
+          </TabPanel>
+
+          <TabPanel>
+            <div className={styles.tabContentContainer}>
+              <div className={styles.containerFlex}>
+
+                <SearchBox label="Find a card" name="search" />
+                <div className={styles.containerFlex}>
+                  <Button type="button" value="Search" onButtonClick={handleSearchButtonOnClick}>SEARCH</Button>
+                  <Button type="button" value="Clear" onButtonClick={handleClearButtonOnClick}>CLEAR</Button>
+                </div>
+              </div>
+
+              {/* list results */}
+              {
+                cards.map((flashCard) => {
+                  return (
+                    <ContainerContent key={flashCard.id}
+                      iconOnClickEdit={handleIconOnClickEdit}
+                      iconOnClickDelete={handleIconOnClickDelete}>
+                      {flashCard}
+                    </ContainerContent>
+                  )
+                })
+              }
+
+              {/* modal */}
+              {modal}
+            </div>
+          </TabPanel>
+        </Tabs>
+
       </div>
-
-      <Flashcards>
-        {/* render cards */}
-        {
-          cards.map(({ id, title, description }) => {
-            return <Card key={id} title={title} description={description} isTitleShown={showTitle} />
-          })
-        }
-      </Flashcards>
     </>
   }
 

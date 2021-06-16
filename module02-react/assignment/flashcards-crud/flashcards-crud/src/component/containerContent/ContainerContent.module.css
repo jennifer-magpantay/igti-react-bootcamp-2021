@@ -1,0 +1,23 @@
+.contentContainer {
+  margin-top: 01em;
+  padding: 01em;
+  border: 1px solid var(--gray);
+  box-shadow: var(--box-shadow);
+}
+
+.iconsContainer {
+  margin: 0.5em 0 0 auto;
+  text-align: end;
+}
+
+.iconsContainer > svg {
+  width: clamp(1.5em, 1.7vw, 1.75em);
+  height: clamp(1.5em, 1.7vw, 1.75em);
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+.iconsContainer > svg:hover, .iconsContainer > svg:focus {
+    fill: white;
+    background-color: var(--dk-gray);
+}

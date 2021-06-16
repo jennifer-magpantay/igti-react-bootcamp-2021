@@ -4,5 +4,41 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 1em 4em;
+  padding: 1em 6%;
+}
+
+/* container holding tabs and contento of {main} */
+.mainContainer * ul {
+  padding-inline: 5%;
+}
+
+.mainContainer * button {
+  margin: 3em auto 1em;
+}
+
+/* container holding the tab Manage Content Tab */
+.tabContentContainer {
+  padding: 2.5em 6% 0;
+}
+
+.containerFlex {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+.containerFlex * button {
+  flex: 0 1 47%;
+  margin: 0.5em auto;
+}
+
+@media (min-width: 768px) {
+  .containerFlex {
+    width: auto;
+    flex-wrap: nowrap;
+  }
+  .containerFlex > button {
+    flex: 0 1 25%;
+    margin: 0 0 0 0.5em;
+  }
 }

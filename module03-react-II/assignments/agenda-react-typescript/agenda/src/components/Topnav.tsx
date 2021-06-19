@@ -13,6 +13,8 @@ import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded"
 
 // styles
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+// services
+import { getMonthAndYear } from "../services/Calendar";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -71,7 +73,7 @@ export default function Topnav() {
           </IconButton>
 
           <Typography variant="h6" className={classes.title}>
-            Month Year
+            {getMonthAndYear()}
           </Typography>
 
           <IconButton className="avatar" aria-label="avatar button">

@@ -1,6 +1,5 @@
 // styles
 import { makeStyles } from "@material-ui/core/styles";
-
 // components
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,6 +7,12 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+// services
+import {
+  DAYS_OF_WEEK,
+  getToday,
+  generateCalendar,
+} from "../services/Calendar";
 
 const useStyles = makeStyles({
   tableContainer: {
@@ -15,21 +20,16 @@ const useStyles = makeStyles({
     overflowX: "hidden",
   },
   table: {
-    // width: "100%",
     minHeight: "100%",
     "& td": {
       borderRight: "1px solid #ddd",
     },
-    // "& * td:nth-of-type(1)": {
-    //   borderLeft: "1px solid #ddd",
-    // },
   },
 });
 
 export default function TableContent() {
   const classes = useStyles();
-
-  const DAYS_OF_WEEK = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  const WEEKS = generateCalendar(getToday());
 
   return (
     <>
@@ -48,42 +48,19 @@ export default function TableContent() {
 
           <TableBody>
             {/* render the table body content */}
-            <TableRow>
-              {/* render days of week */}
-              {DAYS_OF_WEEK.map((day) => (
-                <TableCell key={day} align="center">
-                  X
-                </TableCell>
-              ))}
-            </TableRow>
-
-            <TableRow>
-              {/* render days of week */}
-              {DAYS_OF_WEEK.map((day) => (
-                <TableCell key={day} align="center">
-                  X
-                </TableCell>
-              ))}
-            </TableRow>
-
-            <TableRow>
-              {/* render days of week */}
-              {DAYS_OF_WEEK.map((day) => (
-                <TableCell key={day} align="center">
-                  X
-                </TableCell>
-              ))}
-            </TableRow>
-
-            <TableRow>
-              {/* render days of week */}
-              {DAYS_OF_WEEK.map((day) => (
-                <TableCell key={day} align="center">
-                  X
-                </TableCell>
-              ))}
-            </TableRow>
+            {WEEKS.map((week, i) => {
+              return (
+                <TableRow key={i}>
+                  {week.map((day) => (
+                    <TableCell key={day.date} align="center">
+                      {day.date}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              );
+            })}
           </TableBody>
+
         </Table>
       </TableContainer>
     </>

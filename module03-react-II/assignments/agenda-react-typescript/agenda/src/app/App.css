@@ -1,0 +1,21 @@
+body {
+  overflow: hidden;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+.container {
+  min-height: calc(100vh - 4em);
+  display: flex;
+  align-items: stretch;  
+}
+
+aside {
+  width: 25%;
+  padding: 01em;
+  border-right: 1px solid #ddd;   
+}
+
+main {
+  width: 75%;
+  overflow-y: auto; 
+}

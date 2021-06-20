@@ -1,4 +1,6 @@
 import React from "react";
+// styles
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 // components
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -6,15 +8,11 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-
 // icons
 import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded";
 import NavigateBeforeRoundedIcon from "@material-ui/icons/NavigateBeforeRounded";
-
-// styles
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 // services
-import { getMonthAndYear } from "../services/Calendar";
+import { getCurrentDateTopNav } from "../services/Calendar";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -45,6 +43,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Topnav() {
   const classes = useStyles();
 
+  const currentDate = getCurrentDateTopNav();
+
   return (
     <div className={classes.root}>
       {/* App bar: logo, buttons, month, year, avatar */}
@@ -73,7 +73,7 @@ export default function Topnav() {
           </IconButton>
 
           <Typography variant="h6" className={classes.title}>
-            {getMonthAndYear()}
+            {currentDate}
           </Typography>
 
           <IconButton className="avatar" aria-label="avatar button">

@@ -1,20 +1,11 @@
 import "./modern-reset.css";
 import "./App.css";
-import React from "react";
+// components
 import Topnav from "../components/Topnav";
 import AsideCalendar from "../components/AsideCalendar";
 import TableContent from "../components/TableContent";
 
-// services
-import { renderEvents } from "./Backend";
-
 function App() {
-  renderEvents().then((events) => {
-    for (const event of events) {
-      // console.log(event);
-    }
-  });  
-
   return (
     <>
       {/* header */}
@@ -30,7 +21,7 @@ function App() {
 
         {/* main */}
         <main>
-          <TableContent />           
+          <TableContent />
         </main>
       </div>
     </>

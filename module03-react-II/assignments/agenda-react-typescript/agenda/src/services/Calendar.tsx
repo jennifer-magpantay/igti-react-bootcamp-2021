@@ -1,13 +1,34 @@
+import { IEvents } from "../app/Backend";
+
 export const DAYS_OF_WEEK = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-export function getToday() {
-  const today = new Date();
-  return today;
+function formatMonthCalendar(i: number) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  return months[i - 1];
 }
 
-export function getMonthAndYear() {
-  const date = new Date();
-  const month = date.getMonth() + 1;
+// function to get the current date, which will be displayed at the top nav
+export function getCurrentDateTopNav() {
+  const currentDate = new Date();
+  return setCurrentDateTopNav(currentDate);
+}
+
+export function setCurrentDateTopNav(date: Date) {
+  const monthIndex = date.getMonth() + 1;
+  const month = formatMonthCalendar(monthIndex);
   const year = date.getFullYear();
   const result = `${month} | ${year}`;
   return result;
@@ -27,36 +48,48 @@ function convertDate(firstDate: Date) {
 
 export interface ICalendar {
   date: string;
+  currentDay: number,
+  events: IEvents[];
 }
 
-export function generateCalendar(date: Date): ICalendar[][] {
+// function to generate the calendar dynamically
+// a calendar is composed by weeks and each week is composed by days
+// then, the ICalendar will be a [][] => weeks[] & week[]
+export function generateCalendar(allEvents: IEvents[]): ICalendar[][] {
   const weeks: ICalendar[][] = [];
+  // set the current date
+  const date = new Date();
 
-  // get the current month
+  // get the current month 
   const currentMonth = date.getMonth() + 1;
 
-  // getting the first day of the month: create a new date using date as params
+  // getting the first day of the month: create a new date using the current date as params
   let firstDay = new Date(date.valueOf());
   // based on this 'new' date, set it to 1 to get the first date of the month
   firstDay.setDate(1);
 
   // get the day of the week from first day: values from 0 - 6
   const dayOfTheWeek = firstDay.getDay();
-  // then, calculate to return the first day of the first week
+  // then, set the new date with a calculation/difference between the first day of the month - the day of the week fot eh first day
   firstDay.setDate(1 - dayOfTheWeek);
 
+  // then, through a do/while loop, build the week[], according tho the days of week
   do {
     const week: ICalendar[] = [];
     for (let i = 0; i < DAYS_OF_WEEK.length; i++) {
       const dateISOToString = convertDate(firstDay);
-      // push the variable into thearray week
-      week.push({ date: dateISOToString });
+      // push the result into the array week
+      week.push({
+        date: dateISOToString,
+        currentDay: firstDay.getDate(),
+        events: allEvents.filter((event) => event.date === dateISOToString),
+      });
       // increase one day to firstDay after each loop
       firstDay.setDate(firstDay.getDate() + 1);
     }
-    // push week into the variable weeks
+    // once the week ends, push it into weeks array
     weeks.push(week);
-    // then, breaks the loop when the month values are different
+    // until breaks the loop - when the month values are different
   } while (firstDay.getMonth() !== currentMonth);
   return weeks;
 }

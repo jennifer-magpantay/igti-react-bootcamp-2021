@@ -10,7 +10,7 @@ export interface IEvents {
   date: string;
   time?: string;
   desc: string;
-  calendarID: number;
+  calendarId: number;
 }
 
 const URL = "http://localhost:8080";
@@ -33,11 +33,15 @@ async function returnFetchJson(url: string, options?: object) {
 
 // this module returns the fetch for epmployess
 export function renderCalendar(): Promise<ICalendar[]> {
-    return returnFetchJson(`${URL}/calendar`);
+    return returnFetchJson(`${URL}/calendars`);
 }
 
 export function renderEvents(): Promise<IEvents[]> {
   return returnFetchJson(`${URL}/events`);
+}
+
+export function renderEventsDates(from: string, to:string): Promise<IEvents[]> {
+  return returnFetchJson(`${URL}/events?date_gte=${from}&date_lte=${to}&_sort=date,time`);
 }
 
 

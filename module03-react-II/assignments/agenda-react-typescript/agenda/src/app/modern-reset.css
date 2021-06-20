@@ -11,6 +11,8 @@
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed 
 Ps.: for this, the ul/ol has to be set as <ul role="list"> or <ol role="list"> - this is part of 
 */
+ul, 
+ol,
 ul[role="list"],
 ol[role="list"] {
   list-style: none;

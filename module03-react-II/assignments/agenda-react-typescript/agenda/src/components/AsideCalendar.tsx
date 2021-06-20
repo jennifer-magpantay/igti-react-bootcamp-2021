@@ -1,20 +1,17 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import {
   createStyles,
   fade,
   Theme,
   makeStyles,
 } from "@material-ui/core/styles";
+// components
 import Button from "@material-ui/core/Button";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-
-// list
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Checkbox from "@material-ui/core/Checkbox";
+// services
+import { ICalendar, renderCalendar } from "../app/Backend";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -65,33 +62,34 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     title: {
-      marginTop: "1em",
+      margin: "1em 0",
       paddingLeft: "16px",
     },
-    listRoot: {
-      width: "100%",
-      maxWidth: 360,
-      backgroundColor: theme.palette.background.paper,
+    container: {
+      display: "flex",
+      alignItems: "center",
+      "& > label": {
+        paddingLeft: "08px",
+      },
     },
   })
 );
 
 export default function AsideCalendar() {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState([0]);
+  const [agendaList, setAgendaList] = useState<ICalendar[]>([]);
+  const [isSelected, setIsSelected] = useState<boolean[]>([]);
 
-  const handleToggle = (value: number) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  // useEffect to control the data renderinh at every change on star-end dates
+  useEffect(() => {
+    // calling the backend and saving results into the stats
+    renderCalendar().then((calendar) => setAgendaList(calendar));
+    setIsSelected(agendaList.map(() => true));
+  }, []);
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
+  function handleCheckboxOnChange(){
+    console.log(event);
+  }
 
   return (
     <>
@@ -120,33 +118,21 @@ export default function AsideCalendar() {
 
         {/* list calendar */}
         <h3 className={classes.title}>Agenda List</h3>
-        <List className={classes.listRoot}>
-          {/* render a list */}
-          {[0, 1, 2, 3].map((value) => {
-            const labelId = `checkbox-list-label-${value}`;
-            return (
-              <ListItem
-                key={value}
-                role={undefined}
-                dense
-                button
-                onClick={handleToggle(value)}
-              >
-                <ListItemIcon>
-                  <Checkbox
-                    edge="start"
-                    checked={checked.indexOf(value) !== -1}
-                    tabIndex={-1}
-                    disableRipple
-                    inputProps={{ "aria-labelledby": labelId }}
-                  />
-                </ListItemIcon>
-
-                <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-              </ListItem>
-            );
-          })}
-        </List>
+        {agendaList.map((item) => {
+          return (
+            <div key={item.id} className={classes.container}>
+              <input
+                type="checkbox"
+                name={item.name}
+                id={item.name}
+                value={item.name}
+                checked={isSelected}
+                onChange={handleCheckboxOnChange}
+              />
+              <label htmlFor={item.name}>{item.name}</label>
+            </div>
+          );
+        })}
       </div>
     </>
   );

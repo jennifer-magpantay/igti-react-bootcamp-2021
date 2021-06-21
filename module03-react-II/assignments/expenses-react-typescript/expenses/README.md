@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+# Expenses
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### IGTI React Bootcamp 2021
 
-## Available Scripts
+### Module 03 - React II - TypeScript
 
-In the project directory, you can run:
+Following the lecturer Danilo Ferreira e Silva in this introductory module on TypeScript, students are taught to develop an application to display a list of personal expenses. The user will be able to pick up a specific date (by year and month) to access all records of the chosen date.
 
-### `yarn start`
+### Goals
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Apply concepts of React and TypeScript, including DOM interaction, HTTP request, and data rendering. Also, learn how to use library components, as Material-UI.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Status: 
 
-### `yarn test`
+In development.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `yarn build`
+ReactJS, TypeScript, Node.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[MIT](https://choosealicense.com/licenses/mit/)
+    
+## Author
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Developed by Jennifer Magpantay 
 
-### `yarn eject`
+**Reach me out** 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[![Linkedin Badge](https://img.shields.io/badge/-Jennifer-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jennifermagpantay/)](https://www.linkedin.com/in/jennifermagpantay/) [![Gmail Badge](https://img.shields.io/badge/-jennifer.magpantay@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jennifer.magpantay@gmail.com)](mailto:jennifer.magpantay@gmail.com)

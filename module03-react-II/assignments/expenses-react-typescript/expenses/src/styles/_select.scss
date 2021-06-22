@@ -1,0 +1,17 @@
+.select__container {
+    width: 20%;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+label {
+    width: 100%;
+    display: block;
+}
+
+select {
+    width: 100%;
+    padding: 0.5em 0.25em;
+    border: 1px solid $color-gray;
+    border-radius: 1px;
+}

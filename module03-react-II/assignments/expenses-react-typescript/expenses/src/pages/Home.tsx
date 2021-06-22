@@ -7,13 +7,15 @@ import { Select } from '../components/select/Select';
 import { ResultBox } from '../components/resultBox/ResultBox';
 import { Table } from '../components/table/Table';
 // services
-import { YEARS, MONTHS, IExpenses, renderExpensesByPeriod } from '../services/Backend';
-import { getIndexMonth, formatNumberCurrency } from '../services/Format';
+import { IExpenses, renderExpensesByPeriod } from '../services/Backend';
+import { YEARS, MONTHS, getIndexMonth } from '../services/Dates';
+import { formatNumberCurrency } from '../services/Format';
 
 export function Home() {
     const [year, setYear] = useState<string>("2021");
     const [month, setMonth] = useState<string>("01");
     const [expenses, setExpenses] = useState<IExpenses[]>([]);
+    console.log(year, month)
 
     // useEffect to control the data renderinh at every change on star-end dates
     useEffect(() => {
@@ -32,11 +34,11 @@ export function Home() {
         const selectedMonthStr = getIndexMonth(selectedMonth);
         setMonth(selectedMonthStr);
     };
-   
+
     const total = expenses.reduce((acc, curr) => {
-      return acc + curr.valor;
+        return acc + curr.valor;
     }, 0);
-       
+
     return (
         <>
             <Header>Expenses Control</Header>

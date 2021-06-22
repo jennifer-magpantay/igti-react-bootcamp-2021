@@ -24,7 +24,7 @@ export function Select(props: SelectProps): any {
 
     return (
         <div className="select__container">
-            <label htmlFor={props.labelFor}>{props.labelText}</label>
+            <label className="caption" htmlFor={props.labelFor}>{props.labelText}</label>
             <select id={props.selectId} name={props.selectName} onChange={handleSelectOnChange}>
                 {/*  options to be rendered */}
                 {props.children}

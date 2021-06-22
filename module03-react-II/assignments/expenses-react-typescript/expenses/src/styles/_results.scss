@@ -2,17 +2,14 @@
     width: 50%;
     text-align: right;
 
-    p, span {
+    p,
+    span {
+        width: 100%;
         display: block;
     }
 
-    p {
-        margin-bottom: 0.5em;
-    }
-
-    span {
-        width: 100%;
-        padding: 0.5em;
+      & > span {
+        padding: 0.4em 0.5em;
         border: 1px solid $color-gray;
     }
 }

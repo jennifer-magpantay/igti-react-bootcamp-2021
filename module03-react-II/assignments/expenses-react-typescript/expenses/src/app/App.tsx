@@ -1,9 +1,24 @@
-import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 // pages
 import { Home } from "../pages/Home";
 
 function App() {
-  return <Home />;
+  return (
+    <Router>
+      <Switch>
+        <Route path="/home">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+
+  );
 }
 
 export default App;

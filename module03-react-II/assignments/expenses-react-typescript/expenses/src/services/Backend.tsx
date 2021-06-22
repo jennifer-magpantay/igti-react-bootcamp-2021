@@ -1,7 +1,3 @@
-export const YEARS = [2020, 2021];
-export const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",
-];
-
 const URL = "http://localhost:3001";
 
 export interface IExpenses {

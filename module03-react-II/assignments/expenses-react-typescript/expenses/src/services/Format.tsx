@@ -1,12 +1,7 @@
-import { MONTHS } from "./Backend";
+import { MONTHS } from "./Dates";
 
 export function formatMonthCalendar(i: number) {
     return MONTHS[i - 1];
-}
-
-export function getIndexMonth(month: string) {
-    const value = (MONTHS.indexOf(month)).toString().padStart(2, "0")
-    return value;
 }
 
 export function formatNumberCurrency(value: number) {

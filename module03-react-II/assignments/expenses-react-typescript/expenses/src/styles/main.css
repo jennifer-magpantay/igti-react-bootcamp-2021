@@ -1,6 +1,5 @@
 /* source: https://piccalil.li/blog/a-modern-css-reset */
 /* Box sizing rules */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@100;400;&display=swap");
 *,
 *::before,
 *::after {
@@ -69,10 +68,6 @@ select {
 }
 
 /* ---------- GLOBAL ---------- */
-/*
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
-*/
 html {
   font-size: 62.5%;
 }
@@ -111,21 +106,17 @@ form,
 input,
 h5,
 p,
-label,
 select,
+span,
 table {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: clamp(1.2rem, 1.6vw, 1.6rem);
-  font-weight: 300;
+  font-weight: 400;
 }
 
-strong {
-  font-family: Poppins, sans-serif;
+.caption {
+  font-family: Poppins, Arial, sans-serif;
   font-size: clamp(1.2rem, 1.6vw, 1.6rem);
-}
-
-h5 {
-  font-weight: 500;
 }
 
 li {
@@ -153,6 +144,17 @@ select {
 .result__container {
   width: 50%;
   text-align: right;
+}
+
+.result__container p,
+.result__container span {
+  width: 100%;
+  display: block;
+}
+
+.result__container > span {
+  padding: 0.4em 0.5em;
+  border: 1px solid #dddddd;
 }
 
 .table__container {

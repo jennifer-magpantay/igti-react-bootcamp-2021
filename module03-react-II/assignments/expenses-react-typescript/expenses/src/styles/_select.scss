@@ -1,7 +1,10 @@
 .select__container {
     width: 20%;
     display: inline-block;
-    margin-right: 1em;
+
+    @include small-mobiles {
+        width: 48%;
+    }
 }
 
 label {

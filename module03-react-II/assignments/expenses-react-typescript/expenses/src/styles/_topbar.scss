@@ -2,6 +2,10 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 01em 04em 1.5em;
+    padding: 01em 03em 1.5em;
     border-bottom: 1px solid $color-gray;
+
+    @include small-mobiles {
+        flex-wrap: wrap;
+    }
 }

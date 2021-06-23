@@ -2,13 +2,18 @@
     width: 50%;
     text-align: right;
 
+    @include small-mobiles {
+        width: 100%;
+        display: block;
+    }
+
     p,
     span {
         width: 100%;
         display: block;
     }
 
-      & > span {
+    & > span {
         padding: 0.4em 0.5em;
         border: 1px solid $color-gray;
     }

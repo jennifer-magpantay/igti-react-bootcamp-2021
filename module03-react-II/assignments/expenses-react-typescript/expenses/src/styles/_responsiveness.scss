@@ -1,5 +1,14 @@
 // Queries following mobile first
 
+// small mobiles up to 375px
+
+$small-device: 375px;
+@mixin small-mobiles {
+  @media (max-width: #{$small-device}){
+    @content;
+  }
+}
+
 // mobile: up to 767px
 $tablet: 768px;
 @mixin tablet {

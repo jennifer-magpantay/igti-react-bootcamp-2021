@@ -8,15 +8,19 @@ Following the lecturer Danilo Ferreira e Silva in this introductory module on Ty
 
 ### Goals
 
-Apply concepts of React and TypeScript, including DOM interaction, HTTP request, and data rendering. Also, learn how to use library components, as Material-UI.
+Apply concepts of React and TypeScript, including DOM interaction, HTTP request, and data rendering. 
+
+The following criteria should be met:
+1. Display the records of a specific date;
+2. Calculate the total of expenses of the chosen date.
 
 ### Status: 
 
-In development.
+Completed.
 
 ## Tech Stack
 
-ReactJS, TypeScript, Node.
+ReactJS, TypeScript, Sass, Node.
 
 ## License
 

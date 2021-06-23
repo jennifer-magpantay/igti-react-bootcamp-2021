@@ -1,0 +1,8 @@
+aside {
+    border-right: 1px solid $color-gray;
+    overflow-y: auto;
+
+    @include tablet {
+        width: 30%;
+    }
+}

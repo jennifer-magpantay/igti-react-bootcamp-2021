@@ -1,0 +1,7 @@
+.home__container {
+    height: 85vh;
+
+    @include tablet {
+        display: flex;
+    }
+}

@@ -1,0 +1,9 @@
+main {
+    overflow-y: auto;
+    overflow-x: auto;
+
+    @include tablet {
+        width: 70%;
+        overflow-x: hidden;
+    }
+}

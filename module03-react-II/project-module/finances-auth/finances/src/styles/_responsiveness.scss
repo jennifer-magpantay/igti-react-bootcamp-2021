@@ -1,0 +1,18 @@
+// Queries following mobile first
+
+// mobile: up to 767px
+$tablet: 768px;
+@mixin tablet {
+  @media (min-width: #{$tablet}){
+    @content;
+  }
+}
+
+$laptop: 1024px;
+@mixin laptop-up {
+  @media (min-width: #{$laptop}){
+    @content;
+  }
+}
+
+// desktop: 1440

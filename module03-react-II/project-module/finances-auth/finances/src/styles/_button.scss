@@ -1,0 +1,14 @@
+button {
+    @extend %buttons;
+}
+
+.button-login {
+    background-color: $color-blue;
+    border-color: $color-blue;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: darken($color-blue, 15%);
+    }
+}

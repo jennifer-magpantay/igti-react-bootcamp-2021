@@ -1,0 +1,14 @@
+.result__container {
+    width: 100%;
+    margin-top: 0.5em;   
+    p,
+    span {
+        width: 100%;
+        display: block;
+    }
+
+      & > span {
+        padding: 0.4em 0.5em;
+        border: 1px solid $color-gray;
+    }
+}

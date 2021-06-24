@@ -1,0 +1,24 @@
+.table__container {
+    margin-top: 1.5em;
+    padding: 01em 04em;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead {
+        font-family: Poppins, sans-serif;
+    }
+
+    td,
+    th {
+        border: 1px solid $color-gray;
+        text-align: left;
+        padding: 0.5em;
+    }
+
+    tr:nth-child(even) {
+        background-color: $color-lg-gray;
+    }
+}

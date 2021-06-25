@@ -1,13 +1,19 @@
 .result__container {
     width: 100%;
-    margin-top: 0.5em;   
-    p,
+
+    .result__label,
     span {
         width: 100%;
         display: block;
+        text-align: end;
     }
 
-      & > span {
+    .result__label {
+        font-family: Poppins, Arial, sans-serif;
+        font-size: clamp(1.2rem, 1.6vw, 1.6rem);
+    }
+
+    & > span {
         padding: 0.4em 0.5em;
         border: 1px solid $color-gray;
     }

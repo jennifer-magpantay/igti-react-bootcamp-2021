@@ -1,0 +1,28 @@
+.form__container {
+    width: 50%;
+    margin: 4em auto;
+    padding: 2em;
+    border: 1px solid $color-gray;
+
+    h2 {
+        margin-bottom: 0.5em;
+        padding-bottom: 0.5em;
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.25em 0.5em;
+        border: 1px solid $color-gray;
+    }
+
+    & * button {
+        margin-top: 1em;
+        margin-left: auto;
+    }
+}
+
+.form__caption {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    color: $color-dk-gray;
+}

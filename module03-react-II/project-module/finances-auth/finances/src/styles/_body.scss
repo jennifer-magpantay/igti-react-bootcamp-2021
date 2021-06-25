@@ -1,9 +1,9 @@
 // main table
-main {
+.main__container {
+    max-height: 85vh;
     padding: 01em 03em;
-    overflow-y: auto;
-    overflow-x: auto;
-}
+    overflow: auto;
+ }
 
 // main hero
 .hero__container {

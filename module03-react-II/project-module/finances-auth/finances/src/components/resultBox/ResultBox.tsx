@@ -6,7 +6,7 @@ type ResultProps ={
 export function ResultBox(props: ResultProps){
 return (
     <div className="result__container">
-        <p className="caption">{props.text}</p>       
+        <p className="result__label">{props.text}</p>       
         <span>{props.result}</span>      
     </div>
 );

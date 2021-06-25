@@ -4,6 +4,6 @@ type MainProps = {
 
 export function Main(props: MainProps) {
     return (
-        <main>{props.children}</main>
+        <main className="main__container">{props.children}</main>
     )
 }

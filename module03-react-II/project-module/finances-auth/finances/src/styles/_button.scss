@@ -12,3 +12,28 @@ button {
         background-color: darken($color-blue, 15%);
     }
 }
+
+.button-logout {
+    background-color: #fff;
+    border-color: $color-silver;
+    color: $color-silver;
+
+    &:hover,
+    &:focus {
+        background-color: $color-dk-gray;
+        color: #fff;
+    }
+}
+
+.button-options {
+    margin-right: 01em;
+    background-color: #fff;
+    border-color: $color-blue;
+    color: $color-blue;
+
+    &:hover,
+    &:focus {
+        background-color: $color-blue;
+        color: #fff;
+    }
+}

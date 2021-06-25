@@ -15,24 +15,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/home">
-          <Home />
-        </Route>
-
-        <Route path="/login">
-          <Login />
-        </Route>
-
-        <Route path="/create-account">
-          <CreateAccount />
-        </Route>
-
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
-
+        <Route path="/home" exact component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/create-account" component={CreateAccount} />
+        <Route path="/dashboard/:year/:month" component={Dashboard} />
         <Redirect to={{ pathname: "/home" }} />
-
       </Switch>
     </Router>
   );

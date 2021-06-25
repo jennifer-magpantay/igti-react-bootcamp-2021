@@ -9,8 +9,8 @@ import Image from "../assets/Image.jpg";
 export function Home() {
     const history = useHistory();
 
-    function handleButtonOnClick(event: React.ChangeEvent<HTMLInputElement>) {
-        console.log(event.target.innerHTML)
+    function handleButtonOnClick(event: any) {
+
         if (event.target.innerHTML === "LOGIN") {
             let path = `login`;
             history.push(path);
@@ -25,7 +25,7 @@ export function Home() {
         <>
             <Header>
                 <NavBar>
-                    <Button type="button" classStyle="button-login" buttonOnClick={handleButtonOnClick}>LOGIN</Button>
+                    <Button type="button" className="button-login" onClick={handleButtonOnClick}>LOGIN</Button>
                 </NavBar>
             </Header>
 
@@ -35,7 +35,7 @@ export function Home() {
                         <h2>Lorem ipsum dolor sit.</h2>
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptates voluptas eligendi.
                         </h3>
-                        <Button type="button" classStyle="button-login" buttonOnClick={handleButtonOnClick}>CREATE ACCOUNT</Button>
+                        <Button type="button" className="button-login" onClick={handleButtonOnClick}>CREATE ACCOUNT</Button>
                     </div>
 
                     <div className="hero__img">

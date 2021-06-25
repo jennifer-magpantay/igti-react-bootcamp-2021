@@ -1,3 +1,20 @@
+import { ButtonHTMLAttributes } from 'react';
+
+/*
+ButtonHTMLAttributes has all props a button could receive as optional props
+
+We just need to assign the ButtonProps to ButtonHTMLAttributes<HTMLButtonElement> and pass a spread object to the button element
+*/
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+
+export function Button(props: ButtonProps) { 
+    return <button {...props} />
+}
+
+// this will deadly reduce our code to a few lines and dispense the need of declared a prop to handle events, like onclick 
+
+/*
 type ButtonProps = {
     type: "button" | "submit"
     children: string
@@ -15,3 +32,4 @@ export function Button(props: ButtonProps) {
     }
     return <button type={type} className={classStyle} onClick={handleButtonOnClick}>{children}</button>
 }
+*/

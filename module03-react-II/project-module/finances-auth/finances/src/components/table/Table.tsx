@@ -2,10 +2,11 @@ type TableProps = {
     children: any;
 }
 
-export function Table(props: TableProps) {
+export function TableDetailed(props: TableProps) {
+    const {children} = props;
     return (
         <div className="table__container">
-            <table>
+            <table aria-label="Detailed Expenses of the period">
                 <thead>
                     <tr>
                         <th>Expense</th>
@@ -16,13 +17,27 @@ export function Table(props: TableProps) {
                 </thead>
                 <tbody>
                     {/* tr td content to be rendered at Home */}
-                    {props.children}
-                    {/* <tr>
-                        <td>Drinkns</td>
-                        <td>Happy Hour</td>
-                        <td>13</td>
-                        <td>25.99</td>
-                    </tr> */}
+                    {children}
+                </tbody>
+            </table>
+        </div >
+    );
+}
+
+export function TableResume(props: TableProps) {
+    const { children } = props;
+    return (
+        <div className="table__container">
+            <table aria-label="Resumed Expenses of the period">
+                <thead>
+                    <tr>                      
+                        <th>Category</th>                      
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* tr td content to be rendered at Home */}
+                    {children}
                 </tbody>
             </table>
         </div >

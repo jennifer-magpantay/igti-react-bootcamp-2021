@@ -1,10 +1,14 @@
 import { Header } from "../components/header/Header";
+import { Main } from "../components/main/Main";
+import { FormCreateAccount } from "../components/form/Form";
 
 export function CreateAccount() {
     return (
         <>
             <Header />
-            <h1>Create account</h1>
+            <Main>
+                <FormCreateAccount />
+            </Main>
         </>
     );
 }

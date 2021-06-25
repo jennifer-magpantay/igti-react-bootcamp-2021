@@ -1,14 +1,5 @@
 const URL = "http://localhost:3001";
 
-export interface IExpenses {
-    id: number
-    descricao: string
-    categoria: "Saúde" | "Lazer" | "Alimentação" | "Moradia" | "Transporte"
-    valor: number
-    mes: string
-    dia: string
-}
-
 // set requests
 async function returnFetchJson(url: string, options?: object) {
     try {
@@ -25,6 +16,15 @@ async function returnFetchJson(url: string, options?: object) {
     }
 }
 
+export interface IExpenses {
+    id: number
+    descricao: string
+    categoria: "Saúde" | "Lazer" | "Alimentação" | "Moradia" | "Transporte"
+    valor: number
+    mes: string
+    dia: string
+}
+
 export function renderExpenses(): Promise<IExpenses[]> {
     return returnFetchJson(`${URL}/despesas`);
 }
@@ -34,5 +34,28 @@ export function renderExpensesByPeriod(year: string, month: string): Promise<IEx
     return returnFetchJson(`${URL}/despesas?mes=${year}-${month}&_sort=dia`);
 }
 
+// register a user
+export interface IUser {
+    name: string
+    email: string
+    password: string
+}
+
+// POST /sessao/criar
+export function createUserRegister(user: IUser[]): Promise<IUser[]> {
+    return returnFetchJson(`${URL}/POST /sessao/criar`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+    });
+}
+
+// GET /sessao/usuario
+export function getUserRegister(){
+    
+}
+
+// POST /sessao/finalizar
+export function logoutUserRegister(){}
 
 

@@ -39,7 +39,7 @@ export function Home() {
                     </div>
 
                     <div className="hero__img">
-                        <img src={Image} alt="Finances illustration" />
+                        <img loading="lazy" src={Image} alt="Finances illustration" />
                         <p className="caption"><a href="http://www.freepik.com">Designed by pch.vector / Freepik</a></p>
                     </div>
                 </div>

@@ -1,0 +1,30 @@
+.error__container {
+    padding: 5rem 3rem;
+}
+
+.error__title {
+    font-size: 6rem;
+}
+
+.error__subtitle {
+    font-size: 3.1rem;
+
+}
+
+.error__msg_location {
+    font-size: 2.4rem;
+}
+
+.error__body {
+    margin-top: 01em;
+    font-size: 1.6rem;
+}
+
+.error__link {
+    font-weight: bold;
+    text-decoration: underline;
+
+    &:hover {
+    color: $color-blue;
+}
+}

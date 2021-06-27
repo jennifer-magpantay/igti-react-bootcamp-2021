@@ -26,36 +26,44 @@ export interface IExpenses {
 }
 
 export function renderExpenses(): Promise<IExpenses[]> {
-    return returnFetchJson(`${URL}/despesas`);
+    return returnFetchJson(`${URL}/despesas`, { credentials: 'include'});
 }
 
 // Given query: http://localhost:3001/despesas?mes=2021-01&_sort=dia
 export function renderExpensesByPeriod(year: string, month: string): Promise<IExpenses[]> {
-    return returnFetchJson(`${URL}/despesas?mes=${year}-${month}&_sort=dia`);
+    return returnFetchJson(`${URL}/despesas?mes=${year}-${month}&_sort=dia`, { credentials: 'include'});
 }
 
 // register a user
 export interface IUser {
-    name: string
+    nome: string
     email: string
-    password: string
+    senha: string
 }
 
-// POST /sessao/criar
-export function createUserRegister(user: IUser[]): Promise<IUser[]> {
-    return returnFetchJson(`${URL}/POST /sessao/criar`, {
+// POST /sessao/criar: create an endpoint to login the user
+export function createUserRegister(email: string, senha: string): Promise<IUser[]> {
+    return returnFetchJson(`${URL}/sessao/criar`, {
         method: 'POST',
+        credentials: 'include',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
+        body: JSON.stringify({email, senha}),
     });
 }
 
-// GET /sessao/usuario
-export function getUserRegister(){
-    
+// GET /sessao/usuario : 
+export function getUserRegister(): Promise<IUser>{
+    return returnFetchJson(`${URL}/sessao/usuario`, { credentials: 'include'});
 }
 
 // POST /sessao/finalizar
-export function logoutUserRegister(){}
+export function logoutUserRegister(session:any): Promise<IUser>{
+    return returnFetchJson(`${URL}/sessao/finalizar`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(session),
+    });
+}
 
 

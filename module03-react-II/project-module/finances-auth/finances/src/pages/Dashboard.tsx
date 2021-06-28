@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 // components
 import { Header } from '../components/header/Header';
 import { NavBar } from '../components/navbar/NavBar';
@@ -9,15 +10,20 @@ import { Select } from '../components/select/Select';
 import { ResultBox } from '../components/resultBox/ResultBox';
 import { TableDetailed, TableResume } from '../components/table/Table';
 // services
-import { IExpenses, renderExpensesByPeriod } from '../services/Backend';
+import { IExpenses, IUser, logoutUserSession, renderExpensesByPeriod } from '../services/Backend';
 import { YEARS, MONTHS, getIndexMonth } from '../services/Dates';
 import { formatNumberCurrency, formatMonthCalendar } from '../services/Format';
 import { ReduceCategory, ReduceTotal } from '../services/Reduce';
-import { useParams, useHistory } from 'react-router-dom';
 
-export function Dashboard() {
+type DashboardProps = {
+    onSignOut: () => void;
+    user: IUser;
+}
+
+export function Dashboard(props: DashboardProps) {
     const history = useHistory();
 
+    console.log(props.user)
     // useParams: reads the url params set on route
     // specify in <{}> what this params will receive as types
     // then, use this params to refer to a year or month, without creating states to hold those values
@@ -39,7 +45,6 @@ export function Dashboard() {
     const handleSelectYearOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedYear = event.target.value;
         param.year = selectedYear
-        // setYear(param.year);
         // setting useHistory to change the URL params
         let path = `/dashboard/${param.year}/${param.month}`;
         history.push(path);
@@ -49,14 +54,16 @@ export function Dashboard() {
     const handleSelectMonthOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedMonth = event.target.value;
         param.month = getIndexMonth(selectedMonth);
-        // setMonth(param.month);
-
         let path = `/dashboard/${param.year}/${param.month}`;
         history.push(path);
     };
 
     function handleButtonLogoutOnClick() {
-
+        // close the session
+        logoutUserSession();
+        // props.onSignOut(); ERROR!!!??? - IS NOT A FUNCTION!
+        console.log("closing user session")
+        // once the session is closed, the user will be redirect to the home page, as set on App
     }
 
     function handleButtonOptionsOnClick(event: any) {
@@ -68,8 +75,6 @@ export function Dashboard() {
             setHasResume(false);
         }
     }
-
-    const username = "Stranger";
 
     // rendering data into tables and displaying according to state values
     let results: any = "";
@@ -134,7 +139,7 @@ export function Dashboard() {
         <>
             <Header>
                 <NavBar>
-                    <p>Hello, {username}</p>
+                    <p>Hello, Stranger</p>
                     <Button type="button" className="button-logout" onClick={handleButtonLogoutOnClick}>LOG OUT</Button>
                 </NavBar>
             </Header>

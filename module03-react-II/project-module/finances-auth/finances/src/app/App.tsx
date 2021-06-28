@@ -12,27 +12,29 @@ import { Login } from '../pages/Login'
 import { Dashboard } from '../pages/Dashboard';
 import { CreateAccount } from '../pages/CreateAccount';
 import { Error } from '../pages/Error'
-import { getUserRegister } from '../services/Backend';
+import { IUser, getUserSession } from '../services/Backend';
 
 
 // checking if user has already a session when the application is loaded
 
 function App() {
-  const [hasSession, setHasSession] = useState(false);
+  const [user, setUser] = useState<IUser | null>(null);
 
   useEffect(() => {
-    getUserRegister().then(
-      () => setHasSession(true),
-      () => setHasSession(false))
+    getUserSession().then(setUser, onSignOut);
   }, [])
 
+  function onSignOut() {
+    setUser(null);
+  }
+
   // if has session, displays the dashboard page
-  if (hasSession) {
+  if (user) {
     return (
       <Router>
         <Switch>
           <Route path="/dashboard/:year/:month" exact component={Dashboard} />
-          {/* <Redirect to={{ pathname: "/home" }} /> */}
+          <Redirect to={{ pathname: "/dashboard/2021/01" }} />
         </Switch>
       </Router>
     );
@@ -42,8 +44,11 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/login" component={Login} />
+          <Route path="/login">
+            <Login onLogin={setUser} />
+          </Route>
           <Route path="/create-account" component={CreateAccount} />
+          <Redirect to={{ pathname: "/" }} />
           <Route component={Error} />
         </Switch>
       </Router>

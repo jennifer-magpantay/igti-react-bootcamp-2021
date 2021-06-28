@@ -42,7 +42,7 @@ export interface IUser {
 }
 
 // POST /sessao/criar: create an endpoint to login the user
-export function createUserRegister(email: string, senha: string): Promise<IUser[]> {
+export function loginUserSession(email: string, senha: string): Promise<IUser> {
     return returnFetchJson(`${URL}/sessao/criar`, {
         method: 'POST',
         credentials: 'include',
@@ -51,18 +51,16 @@ export function createUserRegister(email: string, senha: string): Promise<IUser[
     });
 }
 
-// GET /sessao/usuario : 
-export function getUserRegister(): Promise<IUser>{
+// GET /sessao/usuario : check if the user has a session registered
+export function getUserSession(): Promise<IUser>{
     return returnFetchJson(`${URL}/sessao/usuario`, { credentials: 'include'});
 }
 
-// POST /sessao/finalizar
-export function logoutUserRegister(session:any): Promise<IUser>{
+// POST /sessao/finalizar : close the user session
+export function logoutUserSession(): Promise<IUser>{
     return returnFetchJson(`${URL}/sessao/finalizar`, {
-        method: 'POST',
         credentials: 'include',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(session),
+        method: 'POST',
     });
 }
 

@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom";
-
 import { Header } from "../components/header/Header";
 import { Main } from "../components/main/Main";
+
 type Path = {
     location: Location
 }
 
-
-export function Error(path: Path) {  
-    
-    console.log(path.location.pathname);
-
+export function Error(path: Path) {     
+ 
     return (
         <>
             <Header />

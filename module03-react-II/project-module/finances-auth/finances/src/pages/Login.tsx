@@ -1,31 +1,29 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Header } from "../components/header/Header";
 import { Main } from "../components/main/Main";
 import { Button } from "../components/button/Button";
-import { createUserRegister } from "../services/Backend";
+import { loginUserSession, IUser } from "../services/Backend";
 
-export function Login() {
-    const history = useHistory();
+type LoginProps = {
+    onLogin: (user: IUser) => void;
+}
 
+export function Login(props: LoginProps) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function handleFormSubmit(event: React.FormEvent) {
+    function handleLogin(event: React.FormEvent) {
         event.preventDefault();
-        createUserRegister(email, password).then(
-            (user) => {
-                // if the session is ok, then redirect the user to the dashboard
-                let path = `dashboard/2021/01`;
-                history.push(path);
-                console.log(user)
-            },
+        loginUserSession(email, password).then(props.onLogin,
+            // once the user is logged in, they will be redirect to the dashboard/2021/01, as set on App
+
+            // if the login fails, because the user indentification has not been found, then display the alert message
             (error) => {
                 console.error(error)
                 const message = `No registers found for ${email}. Make sure email and password are typed correctly`;
                 alert(message);
             }
-
         )
     }
 
@@ -45,7 +43,7 @@ export function Login() {
             <Main>
                 <div className="form__container">
                     <h2>My Account</h2>
-                    <form onSubmit={handleFormSubmit}>
+                    <form onSubmit={handleLogin}>
                         <label htmlFor="email">Email</label>
                         <input type="email" name="email" value={email}
                             onChange={handleInputOnChange} required />

@@ -13,12 +13,12 @@ Apply concepts of React and TypeScript, including DOM interaction, HTTP request,
 The following criteria should be met:
 1. Display the records of a specific date;
 2. Calculate the total of expenses of the chosen date.
-3. Display results in Resume and Detailed options, where Resume returns the total expenses in categories, and Detailed returns a list with all expenses of the period;
-4. Add user authentication to your application.
+3. Display results in Resume and Detailed options, where Resume returns the total expenses in categories, and Detailed returns a list with all expenses of the period, sorted by day;
+4. Add user authentication and login page to your application. The backend is set to accept the e-mail usuario@email.com and password 1234.
 
 ### Status: 
 
-In development.
+Finished.
 
 ## Tech Stack
 

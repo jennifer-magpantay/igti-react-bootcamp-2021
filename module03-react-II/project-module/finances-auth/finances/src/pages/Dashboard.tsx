@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 // components
 import { Header } from '../components/header/Header';
@@ -10,23 +10,23 @@ import { Select } from '../components/select/Select';
 import { ResultBox } from '../components/resultBox/ResultBox';
 import { TableDetailed, TableResume } from '../components/table/Table';
 // services
-import { IExpenses, IUser, logoutUserSession, renderExpensesByPeriod } from '../services/Backend';
+import { IExpenses, logoutUserSession, renderExpensesByPeriod } from '../services/Backend';
 import { YEARS, MONTHS, getIndexMonth } from '../services/Dates';
 import { formatNumberCurrency, formatMonthCalendar } from '../services/Format';
 import { ReduceCategory, ReduceTotal } from '../services/Reduce';
+import { authContext } from '../services/AuthContent';
 
-type DashboardProps = {
-    onSignOut: () => void;
-    user: IUser;
-}
 
-export function Dashboard(props: DashboardProps) {
+export function Dashboard() {
+    // call the authContext
+    const { user, logOutApp } = useContext(authContext)
     const history = useHistory();
 
-    console.log(props.user)
-    // useParams: reads the url params set on route
-    // specify in <{}> what this params will receive as types
-    // then, use this params to refer to a year or month, without creating states to hold those values
+    /* 
+        useParams: reads the url params set on route
+        specify in <{}> what this params will receive as types
+        then, use this params to refer to a year or month, without creating states to hold those values
+    */
     const param = useParams<{
         year: string, month: string
     }>();
@@ -59,11 +59,12 @@ export function Dashboard(props: DashboardProps) {
     };
 
     function handleButtonLogoutOnClick() {
-        // close the session
+        // close the session by calling the function on the backend and also, calling the authContext function 
         logoutUserSession();
-        // props.onSignOut(); ERROR!!!??? - IS NOT A FUNCTION!
-        console.log("closing user session")
-        // once the session is closed, the user will be redirect to the home page, as set on App
+        logOutApp();
+        // once the session is closed, the user will be sent to the home page
+        let path = "/";
+        history.push(path);
     }
 
     function handleButtonOptionsOnClick(event: any) {
@@ -139,7 +140,7 @@ export function Dashboard(props: DashboardProps) {
         <>
             <Header>
                 <NavBar>
-                    <p>Hello, Stranger</p>
+                    <p>Hello, {user.nome}</p>
                     <Button type="button" className="button-logout" onClick={handleButtonLogoutOnClick}>LOG OUT</Button>
                 </NavBar>
             </Header>

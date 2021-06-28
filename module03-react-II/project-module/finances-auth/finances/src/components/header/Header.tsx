@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/images/logo.png';
+
 type HeaderProps = {
     children?: any;
 }
@@ -5,7 +8,7 @@ type HeaderProps = {
 export function Header(props: HeaderProps) {
     return (
         <header className="header__container">
-            <h1>Finance$$</h1>
+            <Link to="/"><img src={Logo} alt="Finances Logo" /></Link>
             {props.children}
         </header>
     );

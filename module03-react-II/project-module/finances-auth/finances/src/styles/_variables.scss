@@ -1,15 +1,21 @@
 // COLOURS
 $color-text: #282828;
-$color-dk-gray: #4a4a4a;
-$color-lg-gray: #fbfbfb;
-$color-gray: #dddddd;
-$color-red: #eb2f06;
-$color-green: #2ecc71;
-$color-blue: #3498db;
+$color-error: #eb2f06;
+$color-gray: #e0e0e0;
+$color-lg-gray: #fafafa;
+$color-dk-gray: #616161;
 $color-silver: #7f8c8d;
+// primary colors
+$color-blue: #5183c0;
+$color-lg-blue: #EAFCFC;
+$color-dk-blue: #2a4f96;
+// accent colors
+$color-orange: #f57359;
+$color-green: #3c8f7d;
+$color-yellow: #EBB054;
 
 // effects
 $box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.25);
-$overlay: rgba(0,0,0,0.35);
+$overlay: rgba(0, 0, 0, 0.35);
 $text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.5);
 $transitions: all 0.5s ease;

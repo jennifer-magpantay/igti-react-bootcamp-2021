@@ -1,3 +1,39 @@
 .hero__container {
-    height: 80vh;
+    width: 100%;
+
+    @include tablet {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.hero__text,
+.hero__img {
+    @include tablet {
+        width: 50%;
+    }
+}
+
+.hero__text {
+    h1 {
+        color: $color-dk-blue;
+    }
+
+    & > p {
+        margin: 0.5em 0 01em;
+    }
+}
+
+.hero__img {
+    & img {
+        width: 100%;
+    }
+
+    .caption {
+        color: $color-silver;
+        font-size: 1rem;
+        text-align: right;
+        font-style: italic;
+    }
 }

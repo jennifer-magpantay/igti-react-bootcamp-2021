@@ -4,7 +4,7 @@ import { Header } from "../components/header/Header";
 import { NavBar } from "../components/navbar/NavBar";
 import { Button } from "../components/button/Button";
 import { Main } from "../components/main/Main";
-import Image from "../assets/Image.jpg";
+import Image from "../assets/images/hero-image.jpg";
 
 export function Home() {
     const history = useHistory();
@@ -32,9 +32,9 @@ export function Home() {
             <Main>
                 <div className="hero__container">
                     <div className="hero__text">
-                        <h2>Lorem ipsum dolor sit.</h2>
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptates voluptas eligendi.
-                        </h3>
+                        <h1>Lorem ipsum dolor sit.</h1>
+                        <h2>Lorem ipsum dolor sit amet consectetur</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ratione eos voluptates velit harum repellat.</p>
                         <Button type="button" className="button-login" onClick={handleButtonOnClick}>CREATE ACCOUNT</Button>
                     </div>
 

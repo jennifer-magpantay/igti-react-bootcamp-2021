@@ -1,6 +1,6 @@
 import styles from './App.module.css'
 import { useState, useEffect } from 'react';
-import { apiGetCities, apiGetCandidates, apiGetElection } from '../services/apiService';
+import { apiGetCities, apiGetCandidates, apiGetElection, apiGetElectionFromCityId } from '../services/apiService';
 import { formatNumber, formatPercentage } from '../helpers/format';
 import Header from "../components/header/Header";
 import Aside from '../components/aside/Aside';
@@ -11,7 +11,6 @@ import Card from '../components/card/Card';
 function App() {
   const [cities, setCities] = useState([]);
   const [candidates, setCandidates] = useState([]);
-  const [election, setElection] = useState([]);
 
   const [cityTotalResults, setCityTotalResults] = useState();
   const [results, setResults] = useState();
@@ -24,9 +23,6 @@ function App() {
 
       const dataCandidates = await apiGetCandidates();
       setCandidates(dataCandidates);
-
-      const dataElection = await apiGetElection();
-      setElection(dataElection);
     }
     getDataFromServer();
   }, [])
@@ -35,33 +31,34 @@ function App() {
   function handleSelectOnChange(event) {
     // with the event.target.value from the option choice:
     const selectedOption = event.target.value;
-
+    if (selectedOption === "--") {
+      return
+    }
     // 1) find on cities list the city that match the event target;
     findAndDisplayResultsCities(selectedOption);
   }
 
   function findAndDisplayResultsCities(selectedOption) {
     // find returns the first result
-    const filterCity = cities.find((city) => selectedOption === city.name);
+    const city = cities.find((city) => selectedOption === city.name);
     // set totalResults to display the aside result box
-    setCityTotalResults(filterCity);
+    setCityTotalResults(city);
 
-    // 2) then, with the city data result, filter the election results x city ID
-    filterElectionxCityId(filterCity);
+    // 2) then, with the city data result, get the city ID
+    getCityById(city);
   }
 
-  function filterElectionxCityId(cityTotalResults) {
+  async function getCityById(cityTotalResults) {
     // error try using filterCity.map()
     const { id } = cityTotalResults;
-
-    const filterElection = election.filter((vote) => { return vote.cityId === id }).sort((a, b) => a.votes < b.votes ? 1 : -1);
+    const cityId = (await apiGetElectionFromCityId(id)).sort((a, b) => a.votes < b.votes ? 1 : -1);;
 
     // 3) finally, match the election results of the city x candidate ID
-    filterElectionResultsxCandidateId(filterElection, cityTotalResults);
+    filterElectionResultsxCandidateId(cityId, cityTotalResults);
   }
 
-  function filterElectionResultsxCandidateId(filterElection, cityTotalResults) {
-    const result = filterElection.map((item) => {
+  function filterElectionResultsxCandidateId(cityId, cityTotalResults) {
+    const result = cityId.map((item) => {
       const filterCandidate = candidates.filter((candidate) => candidate.id === item.candidateId);
 
       // getting candidadate name and username
@@ -116,6 +113,13 @@ function App() {
     </>
   }
 
+  // sorting maping cities to display as <option>
+  const options = cities.sort((a, b) => a.name.localeCompare(b.name))
+    .map((city) => {
+      const { id, name } = city;
+      return <option key={id} id={id} value={name}>{name}</option>
+    })
+
   return (
     <>
       {/* header */}
@@ -124,13 +128,8 @@ function App() {
       <div className={styles.container}>
         <Aside>
           <Select selectOnChange={handleSelectOnChange}>
-            {
-              // maping cities to display as <option>
-              cities.map((city) => {
-                const { id, name } = city;
-                return <option key={id} value={name}>{name}</option>
-              })
-            }
+            <option value="--">--</option>
+            {options}
           </Select>
           {/* results */}
           {aside}

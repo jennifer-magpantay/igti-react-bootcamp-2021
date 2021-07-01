@@ -16,3 +16,8 @@ export async function apiGetElection() {
     const electionData = await get(`${BASE_URL}/election`);
     return electionData;
 }
+
+export async function apiGetElectionFromCityId(cityId) {
+    const cityIdData = await get(`${BASE_URL}/election?cityId=${cityId}`);
+    return cityIdData;
+}

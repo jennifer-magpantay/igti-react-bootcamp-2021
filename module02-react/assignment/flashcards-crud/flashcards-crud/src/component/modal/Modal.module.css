@@ -18,8 +18,18 @@
   box-shadow: var(--box-shadow);
 }
 
+.modalButton {
+  display: block;
+  margin: 0 0 0 auto;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 2.4rem;
+  outline: 0;
+}
+
 @media (min-width: 768px) {
   .modalContent {
-     width: 60%;
+    width: 60%;
   }
 }

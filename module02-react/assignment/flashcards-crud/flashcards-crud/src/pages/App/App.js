@@ -1,9 +1,8 @@
-import styles from './App.module.css';
 import { useEffect, useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// styles
+import styles from './App.module.css';
 import 'react-tabs/style/react-tabs.css';
-import { helperShuffleArray } from '../../helpers/arrayHelpers';
-import { apiGetData } from '../../services/apiService';
+// components
 import Header from '../../component/header/Header';
 import Spinner from '../../component/spinner/Spinner';
 import ErrorMessage from '../../component/errorMessage/ErrorMessage';
@@ -16,6 +15,11 @@ import SearchBox from '../../component/searchBox/SearchBox';
 import ContainerContent from '../../component/containerContent/ContainerContent';
 import Modal from '../../component/modal/Modal';
 import Form from '../../component/form/Form';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// helpers
+import { helperShuffleArray } from '../../helpers/arrayHelpers';
+// services
+import { apiGetData } from '../../services/apiService';
 
 /*
   App, as a parent component, will import all the other components of the application
@@ -28,6 +32,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({})
 
   // implement useEffect to render tha date from the api
   useEffect(() => {
@@ -80,10 +85,13 @@ function App() {
 
   }
 
+  function handleButtonAddNewCard() {
+    setShowModal(true);
+  }
+
   function handleIconOnClickEdit(flashCard) {
-    console.log(flashCard)
-    console.log("open modal")
-    setShowModal(true)
+    setShowModal(true);
+    setSelectedCard(flashCard);
   }
 
 
@@ -96,11 +104,19 @@ function App() {
     alert("Card deleted with success")
   }
 
+  function handleOnClickCloseModal() {
+    setShowModal(currentState => !currentState)
+  }
+
+  function handleFormSubmit(title, description) {
+    console.log(title, description);
+  }
+
   let modal = "";
   if (showModal) {
     modal = <>
-      <Modal>
-        <Form />
+      <Modal onCloseButton={handleOnClickCloseModal}>
+        <Form onFormSubmit={handleFormSubmit} />
       </Modal>
     </>
   }
@@ -125,34 +141,38 @@ function App() {
           </TabList>
 
           <TabPanel>
-            <Button type="button" value="Suffle Cards" onButtonClick={handleShuffleButtonOnClick}>SHUFFLE CARDS</Button>
+            <div className={styles.panelContainer}>
+              <Button type="button" value="Suffle Cards" className={styles.buttonShuffleCards} onButtonClick={handleShuffleButtonOnClick}>SHUFFLE CARDS</Button>
 
-            <div className={styles.container}>
-              <RadioButton id="title" name="info" label="Display Title" isChecked={showTitle} onButtonChange={handleRadioButtonOnChange} />
+              <div className={styles.container}>
+                <RadioButton id="title" name="info" label="Display Title" isChecked={showTitle} onButtonChange={handleRadioButtonOnChange} />
 
-              <RadioButton id="description" name="info" label="Display Description" isChecked={!showTitle} onButtonChange={handleRadioButtonOnChange} />
+                <RadioButton id="description" name="info" label="Display Description" isChecked={!showTitle} onButtonChange={handleRadioButtonOnChange} />
+              </div>
+
+              <Flashcards>
+                {/* render cards */}
+                {
+                  cards.map(({ id, title, description }) => {
+                    return <Card key={id} title={title} description={description} isTitleShown={showTitle} />
+                  })
+                }
+              </Flashcards>
             </div>
-
-            <Flashcards>
-              {/* render cards */}
-              {
-                cards.map(({ id, title, description }) => {
-                  return <Card key={id} title={title} description={description} isTitleShown={showTitle} />
-                })
-              }
-            </Flashcards>
           </TabPanel>
 
           <TabPanel>
             <div className={styles.tabContentContainer}>
-              <div className={styles.containerFlex}>
+              <Button type="button" value="add new card" onButtonClick={handleButtonAddNewCard}>ADD NEW CARD</Button>
+              
+              {/* <div className={styles.containerFlex}>
 
                 <SearchBox label="Find a card" name="search" />
                 <div className={styles.containerFlex}>
                   <Button type="button" value="Search" onButtonClick={handleSearchButtonOnClick}>SEARCH</Button>
                   <Button type="button" value="Clear" onButtonClick={handleClearButtonOnClick}>CLEAR</Button>
                 </div>
-              </div>
+              </div> */}
 
               {/* list results */}
               {
@@ -180,7 +200,6 @@ function App() {
   return (
     <>
       <Header>FlashCards Application</Header>
-
       <Main>{main}</Main>
     </>
   );

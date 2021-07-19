@@ -220,6 +220,11 @@ header {
   padding: 01em 03em;
 }
 
+.topbar__container .topbar__caption {
+  margin-bottom: 0.5em;
+  font-weight: 100;
+}
+
 .home__container {
   height: 85vh;
 }
@@ -230,5 +235,9 @@ header {
     display: -ms-flexbox;
     display: flex;
   }
+}
+
+.results {
+  padding: 01em 03em;
 }
 /*# sourceMappingURL=main.css.map */

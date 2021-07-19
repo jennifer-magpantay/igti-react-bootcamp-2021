@@ -1,13 +1,14 @@
-type ResultProps ={
-    result: string
-    text: string
-}
+type ResultProps = {
+  result: string;
+  text: string;
+};
 
-export function ResultBox(props: ResultProps){
-return (
+export function ResultBox(props: ResultProps) {
+  const { result, text } = props;
+  return (
     <div className="result__container">
-        <p className="caption">{props.text}</p>       
-        <span>{props.result}</span>      
+      <p className="caption">{text}</p>
+      <span>{result}</span>
     </div>
-);
+  );
 }

@@ -3,7 +3,8 @@ const URL = "http://localhost:3001";
 export interface IExpenses {
     id: number
     descricao: string
-    categoria: "Saúde" | "Lazer" | "Alimentação" | "Moradia" | "Transporte"
+    // categoria: "Saúde" | "Lazer" | "Alimentação" | "Moradia" | "Transporte"
+    categoria: string
     valor: number
     mes: string
     dia: string

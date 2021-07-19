@@ -1,4 +1,4 @@
-# Expenses by Categories
+# Expenses Control
 
 ### IGTI React Bootcamp 2021
 
@@ -18,7 +18,7 @@ To challenge myself, I have also provided a total of expenses by categories.
 
 ### Status: 
 
-Finished.
+Testing code - and facing a bug when loading the categories. 
 
 ## Tech Stack
 

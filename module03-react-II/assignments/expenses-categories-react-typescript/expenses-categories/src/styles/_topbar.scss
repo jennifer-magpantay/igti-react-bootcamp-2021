@@ -1,7 +1,8 @@
 .topbar__container {
-    // display: flex;
-    // align-items: flex-start;
-    // justify-content: space-between;
     padding: 01em 03em;
-   
+
+    .topbar__caption {
+        margin-bottom: 0.5em;
+        font-weight: 100;
+    }
 }

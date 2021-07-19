@@ -1,9 +1,8 @@
 type MainProps = {
-    children: any
-}
+  children: any;
+};
 
 export function Main(props: MainProps) {
-    return (
-        <main>{props.children}</main>
-    )
+  const { children } = props;
+  return <main>{children}</main>;
 }

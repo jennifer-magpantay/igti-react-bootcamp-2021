@@ -3,7 +3,8 @@ type AsideProps = {
 }
 
 export function Aside(props: AsideProps) {
+    const {children } = props;
     return (
-        <aside>{props.children}</aside>
+        <aside>{children}</aside>
     )
 }

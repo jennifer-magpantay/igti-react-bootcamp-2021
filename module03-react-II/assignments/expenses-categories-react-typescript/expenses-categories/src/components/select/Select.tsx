@@ -15,19 +15,20 @@ url source: https://blaipratdesaba.com/react-typescript-cheatsheet-form-elements
 */
 
 export function Select(props: SelectProps): any {
+    const {labelFor, labelText, children, selectId, selectName, selectOnChange} = props;
 
     function handleSelectOnChange(event: any) {
-        if (props.selectOnChange) {
-            props.selectOnChange(event);
+        if (selectOnChange) {
+            selectOnChange(event);
         }
     }
 
     return (
         <div className="select__container">
-            <label className="caption" htmlFor={props.labelFor}>{props.labelText}</label>
-            <select id={props.selectId} name={props.selectName} onChange={handleSelectOnChange}>
+            <label className="caption" htmlFor={labelFor}>{labelText}</label>
+            <select id={selectId} name={selectName} onChange={handleSelectOnChange}>
                 {/*  options to be rendered */}
-                {props.children}
+                {children}
             </select>
         </div>
     )

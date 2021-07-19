@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { IUser } from "./Backend";
 
 // the context holds the user information and the logout function
@@ -16,4 +16,9 @@ export const authContext = createContext<IAuthContext>({
     },
     logOutApp: () => { },
 });
+
+// creating a hook for the context
+export function useAuthContext(){
+    return useContext(authContext);
+}
 

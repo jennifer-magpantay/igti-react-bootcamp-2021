@@ -4,6 +4,7 @@ import Logo from '../../assets/images/logo.png';
 type HeaderProps = {
     children?: any;
 }
+// export const functionName = React.memo(function ());
 
 export function Header(props: HeaderProps) {
     return (
@@ -13,3 +14,4 @@ export function Header(props: HeaderProps) {
         </header>
     );
 }
+

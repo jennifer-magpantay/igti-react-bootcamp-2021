@@ -45,11 +45,11 @@ export function Login(props: LoginProps) {
                     <h2>My Account</h2>
                     <form onSubmit={handleLogin}>
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="email" value={email}
+                        <input type="email" name="email" value={email} autoComplete="email"
                             onChange={handleInputOnChange} required />
 
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" value={password} onChange={handleInputOnChange} required />
+                        <input type="password" name="password" value={password} autoComplete="current-password" onChange={handleInputOnChange} required />
                         {/* add a submit button: without it the onSubimit will not work. also, there is no need to add an onclick event to a submit button. if you add itm, this will change the event.target for the button instead of the form*/}
                         <Button type="submit" className="button-login">LOGIN</Button>
                     </form>

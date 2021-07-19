@@ -7,23 +7,33 @@ type FormLoginProps = FormHTMLAttributes<HTMLFormElement>
 export function FormLogin(props: FormLoginProps, emailValue: string, passwordValue: string) {
 
     return (
-        <div className="form__container">
-            <h2>My Account</h2>
-            <form>
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" value={emailValue} required />
+      <div className="form__container">
+        <h2>My Account</h2>
+        <form>
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" value={emailValue} required />
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" value={passwordValue} required />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={passwordValue}
+            required
+          />
 
-                {/* <Button type="submit" className="button-login" onClick={handleFormSubmit}>LOGIN</Button> */}
-                {props.children}
-            </form>
+          {/* <Button type="submit" className="button-login" onClick={handleFormSubmit}>LOGIN</Button> */}
+          {props.children}
+        </form>
 
-            <div className="form__caption">
-                <p>Not registered yet?<Link to="/create-account"> Create an account</Link></p>
-            </div>
+        <div className="form__caption">
+          <p>
+            Not registered yet?
+            <Link to="/create-account">
+              <strong> Create an account</strong>
+            </Link>
+          </p>
         </div>
+      </div>
     );
 }
 
@@ -63,24 +73,35 @@ export function FormCreateAccount() {
     }
 
     return (
-        <div className="form__container">
-            <h2>Create Account</h2>
-            <form onSubmit={handleFormSubmit}>
-                <label htmlFor="name">Name</label>
-                <input type="name" name="name" required />
+      <div className="form__container">
+        <h2>Create Account</h2>
+        <form onSubmit={handleFormSubmit}>
+          <label htmlFor="name">Name</label>
+          <input type="name" name="name" required />
 
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" required />
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" required />
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" required />
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" required />
 
-                <Button type="submit" className="button-login" onClick={handleFormSubmit}>REGISTER</Button>
-            </form>
+          <Button
+            type="submit"
+            className="button-login"
+            onClick={handleFormSubmit}
+          >
+            REGISTER
+          </Button>
+        </form>
 
-            <div className="form__caption">
-                <p>Have an account already<Link to="/login"> Login here</Link></p>
-            </div>
+        <div className="form__caption">
+          <p>
+            Have an account already?
+            <Link to="/login">
+              <strong> Login here</strong>
+            </Link>
+          </p>
         </div>
+      </div>
     );
 }
